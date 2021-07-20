@@ -105,6 +105,11 @@
 
 	<center>
 		<div id="piechart"></div>
+		<div id="piechart2"></div>
+		<div id="piechart3"></div>
+		<div id="piechart4"></div>
+		<div id="piechart5"></div>
+		<div id="piechart6"></div>
 	
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	
@@ -117,11 +122,11 @@
 	function drawChart() {
 	  var data = google.visualization.arrayToDataTable([
 	  ['Pregunta', 'Promedio'],
-	  ['1 pregunta', 10],
-	  ['2 pregunta', 10],
-	  ['3 pregunta', 10],
-	  ['4 pregunta', 10],
-	  ['5 pregunta', 10]
+	  ['1', 10],
+	  ['2', 10],
+	  ['3', 10],
+	  ['4', 10],
+	  ['5', 10]
 	]);
 	
 	  // Optional; add a title and set the width and height of the chart
@@ -129,7 +134,17 @@
 	
 	  // Display the chart inside the <div> element with id="piechart"
 	  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+	  var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
+	  var chart3 = new google.visualization.PieChart(document.getElementById('piechart3'));
+	  var chart4 = new google.visualization.PieChart(document.getElementById('piechart4'));
+	  var chart5 = new google.visualization.PieChart(document.getElementById('piechart5'));
+	  var chart6 = new google.visualization.PieChart(document.getElementById('piechart6'));
 	  chart.draw(data, options);
+	  chart2.draw(data, options);
+	  chart3.draw(data, options);
+	  chart4.draw(data, options);
+	  chart5.draw(data, options);
+	  chart6.draw(data, options);
 	}
 	</script>
 	</center>
