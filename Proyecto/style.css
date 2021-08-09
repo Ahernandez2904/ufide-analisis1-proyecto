@@ -2276,7 +2276,7 @@ select.mobile-device {
     font-weight: 400;
     font-size: 20px;
     text-transform: capitalize;
-    line-height: !important;
+    /*line-height: !important;*/
 }
 
 .footer {
@@ -2527,7 +2527,7 @@ select.mobile-device {
     color: #999 !important;
     margin: 0 !important;
     padding: 0 !important;
-    line-height: 1 !important:
+    line-height: 1 !important;
 }
 
 .stat-wrap p {
@@ -2536,7 +2536,7 @@ select.mobile-device {
     margin: 0;
     font-weight: 300;
     padding: 4px 0 0;
-    line-height: 1 !important:
+    line-height: 1 !important;
 }
 
 #preloader {
@@ -2619,3 +2619,28 @@ select.mobile-device {
     border-color: rgba(255, 255, 255, 0.6);
     color: rgba(255, 255, 255, 0.6);
 }
+
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+
+  /* Style all font awesome icons */
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 70px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+  
+  /* Add a hover effect if you want */
+  .fa:hover {
+    opacity: 0.7;
+  }
+
+  .center {
+    text-align: center;
+  }
