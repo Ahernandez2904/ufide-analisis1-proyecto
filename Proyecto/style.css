@@ -541,7 +541,7 @@ a img.aligncenter {
 	text-align: center;
 	margin-right: auto;
 	margin-left: auto;
-	margin-top: 0px;
+	margin-top: 4px;
 	cursor: pointer;
 }
 
@@ -2411,6 +2411,8 @@ select.mobile-device {
 .datatable-button:hover { color: var(--fung-red) }
 
 .btn-primary { background-color: #333333; }
+
+.btn-link { color: white; }
 
 /*------------------------------------------------------------------
     FULLCALENDAR.IO
