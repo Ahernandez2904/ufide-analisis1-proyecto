@@ -254,12 +254,12 @@ a img.aligncenter {
     HEADER
 -------------------------------------------------------------------*/
 
-.navbar-dark{
-	background-color: transparent;
+.navbar-dark {
+	background-color: #ffffff;
 	transition: all 0.3s ease 0s;
 }
 
-.navbar-dark .navbar-nav .nav-link{
+.navbar-dark .navbar-nav .nav-link {
 	color: var(--fung-red);
 	letter-spacing: 1px;
 	font-size: 14px;
@@ -269,7 +269,7 @@ a img.aligncenter {
 
 /*.navbar-dark .navbar-nav .nav-link:hover{ color: #ffffff; }*/
 
-.navbar-dark .navbar-nav .nav-link.active{ font-weight: 600; }
+.navbar-dark .navbar-nav .nav-link.active { font-weight: 600; }
 
 .navbar-dark .navbar-nav .nav-link::after {
     content: '';
@@ -287,7 +287,7 @@ a img.aligncenter {
     transition: all .5s;
     z-index: -1;
 }
-.navbar-dark .navbar-nav .nav-link.active{ color: #000000; }
+.navbar-dark .navbar-nav .nav-link.active { color: #000000; }
 
 .navbar-dark .navbar-nav .nav-link.active::after {
 	width: 100%;
@@ -295,13 +295,13 @@ a img.aligncenter {
 	border-radius: 100px 100px 0px 100px;
 }
 
-#mainNav.navbar-shrink .navbar-nav .nav-link{ color: var(--fung-red); }
+#mainNav.navbar-shrink .navbar-nav .nav-link { color: var(--fung-red); }
 
-#mainNav.navbar-shrink .navbar-nav .nav-link::after{ background: #000000; }
+#mainNav.navbar-shrink .navbar-nav .nav-link::after { background: #000000; }
 
-#mainNav.navbar-shrink .navbar-nav .nav-link.active{ color: #ffffff; }
+#mainNav.navbar-shrink .navbar-nav .nav-link.active { color: #ffffff; }
 
-#mainNav.navbar-shrink .navbar-brand img{ max-width: 130px; }
+#mainNav.navbar-shrink .navbar-brand img { max-width: 130px; }
 
 /*------------------------------------------------------------------
     SECTIONS
@@ -383,9 +383,7 @@ a img.aligncenter {
   opacity: 0;
 }
 
-.no-js .cd-words-wrapper b.is-visible {
-  opacity: 1;
-}
+.no-js .cd-words-wrapper b.is-visible { opacity: 1; }
 
 /* -------------------------------- 
     XCLIP 
@@ -397,9 +395,7 @@ a img.aligncenter {
   font-size: 30px;
 }
 
-.cd-headline.clip span b {
-	text-transform: uppercase;
-}
+.cd-headline.clip span b { text-transform: uppercase; }
 
 .cd-headline.clip .cd-words-wrapper {
   overflow: hidden;
