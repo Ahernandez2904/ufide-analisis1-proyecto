@@ -2399,3 +2399,22 @@ select.mobile-device {
     margin-left: 10px;
     margin-right: 10px;
 }
+
+.datatable-button {
+    text-align: center;
+    border-radius: 0%;
+    display: inline-block;
+    font: normal normal normal 30px/1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    border: 0px;
+    background-color: transparent;
+}
+
+.datatable-button:hover { color: var(--fung-red) }
+
+/*------------------------------------------------------------------
+    FULLCALENDAR.IO
+-------------------------------------------------------------------*/
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, 
+.show>.btn-primary.dropdown-toggle{ background-color: var(--fung-red); }
