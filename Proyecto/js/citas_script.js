@@ -1,21 +1,19 @@
 jQuery(document).ready(function(){
-  jQuery('.datetimepicker').datepicker({
-      timepicker: true,
-      language: 'en',
-      range: true,
-      multipleDates: true,
-		  multipleDatesSeparator: " - "
+  	jQuery('.datetimepicker').datepicker({
+		timepicker: true,
+		language: 'es',
+		range: true,
+		multipleDates: true,
+		multipleDatesSeparator: " - ",
     });
-  jQuery("#add-event").submit(function(){
-      alert("Submitted");
-      var values = {};
-      $.each($('#add-event').serializeArray(), function(i, field) {
-          values[field.name] = field.value;
-      });
-      console.log(
-        values
-      );
-  });
+  	jQuery("#add-event").submit(function(){
+		alert("Submitted");
+		var values = {};
+		$.each($('#add-event').serializeArray(), function(i, field) {
+			values[field.name] = field.value;
+		});
+      	console.log(values);
+  	});
 });
 
 (function () {    
@@ -27,17 +25,16 @@ jQuery(document).ready(function(){
 		// page is ready
 		jQuery('#calendar').fullCalendar({
 			themeSystem: 'bootstrap4',
-			// emphasizes business hours
-			businessHours: false,
+			businessHours: false, // emphasizes business hours
 			defaultView: 'month',
-			// event dragging & resizing
 			editable: true,
-			// header
-			header: {
-				left: 'title',
-				center: 'month,agendaWeek,agendaDay',
-				right: 'today prev,next'
-			},
+			locale: 'es',
+			monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+			monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+			dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+			dayNamesShort: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
+			buttonText: { today: 'Hoy', month: 'Mes', week: 'Semana', day: 'Día' },
+			header: { left: 'title', center: 'month,agendaWeek,agendaDay', right: 'today prev,next' },
 			events: [
 				{
 					title: 'Barber',
@@ -149,11 +146,11 @@ jQuery(document).ready(function(){
 				jQuery('#modal-view-event-add').modal();
 			},
 			eventClick: function(event, jsEvent, view) {
-			        jQuery('.event-icon').html("<i class='fa fa-"+event.icon+"'></i>");
-					jQuery('.event-title').html(event.title);
-					jQuery('.event-body').html(event.description);
-					jQuery('.eventUrl').attr('href',event.url);
-					jQuery('#modal-view-event').modal();
+				jQuery('.event-icon').html("<i class='fa fa-"+event.icon+"'></i>");
+				jQuery('.event-title').html(event.title);
+				jQuery('.event-body').html(event.description);
+				jQuery('.eventUrl').attr('href',event.url);
+				jQuery('#modal-view-event').modal();
 			},
 		})
 	});
@@ -167,22 +164,19 @@ jQuery(document).ready(function(){
 $(document).ready(function() {
 	//Only needed for the filename of export files.
 	//Normally set in the title tag of your page.
-	document.title='Simple DataTable';
 	// DataTable initialisation
 	$('#example').DataTable(
 		{
 			"dom": '<"dt-buttons"Bf><"clear">lirtp',
 			"paging": false,
 			"autoWidth": true,
-			"columnDefs": [
-				{ "orderable": false, "targets": 5 }
-			],
+			"columnDefs": [{ "orderable": false, "targets": 5 }],
 			"buttons": [
 				'colvis',
 				'copyHtml5',
-        'csvHtml5',
+        		'csvHtml5',
 				'excelHtml5',
-        'pdfHtml5',
+				'pdfHtml5',
 				'print'
 			]
 		}
@@ -236,7 +230,7 @@ $(document).ready(function() {
 				$(this).on('click', function(evt){
 					$this = $(this);
 					var dtRow = $this.parents('tr');
-					if(confirm("Are you sure to delete this row?")){
+					if(confirm("¿Está seguro que desea eliminar ese registro?")){
 						var table = $('#example').DataTable();
 						table.row(dtRow[0].rowIndex-1).remove().draw( false );
 					}
@@ -263,7 +257,7 @@ $(document).ready(function() {
 		$(this).on('click', function(evt){
 			$this = $(this);
 			var dtRow = $this.parents('tr');
-			if(confirm("Are you sure to delete this row?")){
+			if(confirm("¿Está seguro que desea eliminar ese registro?")){
 				var table = $('#example').DataTable();
 				table.row(dtRow[0].rowIndex-1).remove().draw( false );
 			}
