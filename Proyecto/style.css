@@ -2374,18 +2374,21 @@ select.mobile-device {
     color: rgba(255, 255, 255, 0.6);
 }
 
-.btn-facebook { background: #3B5998; color: white; }
+.fa-facebook { background: #3B5998; color: white; }
 
-.btn-whatsapp { background: #25d366; color: white; }
+.fa-facebook:hover { opacity: 0.2; color: #3B5998}
 
-/* Style all font awesome icons */
-.fa {
+.fa-whatsapp { background: #25d366; color: white; }
+
+.fa-whatsapp:hover { opacity: 0.2; color: #25d366}
+
+.social-media {
     padding: 20px;
-    font-size: 30px;
     width: 70px;
     text-align: center;
-    text-decoration: none;
     border-radius: 50%;
+    display: inline-block;
+    font: normal normal normal 30px/1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
 }
-
-.fa:hover { opacity: 0.2; color: red}
