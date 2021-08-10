@@ -1369,10 +1369,7 @@ be a descendant of the grid when it is being dragged.
 .datepicker{
 	z-index: 123456;
 }
-body{
-  font-family: 'Nunito', sans-serif;
-  background: #F3F5F9;
-}
+
 .card{
   border: 0;
   background: transparent;
@@ -1401,9 +1398,10 @@ h2{
   box-shadow: none;
 }
 .btn.btn-primary{
-  background: #002147;
+  background: #333333;
   color: #ffffff;
 }
+
 .form-group label{
   font-weight: 600;
   letter-spacing: 0.010em;
@@ -1427,7 +1425,6 @@ h2{
   box-shadow: none;
   height: 50px;
 }
-
 
 /* related product */
 .related-product{
@@ -1474,11 +1471,8 @@ h2{
   margin-right: 10px;
 }
 
-
 /*-----buscar---*/
 
-
- 
 .webdesigntuts-workshop input {
   position: absolute;
 	background: #222;	
@@ -1581,9 +1575,6 @@ h2{
     }
 }
 
-
-
-body {margin:2em;}
 td:last-child {text-align:center;}
 
 .fc .fc-toolbar > * > *{
@@ -1592,22 +1583,6 @@ td:last-child {text-align:center;}
 .btn-group, .btn-group-vertical{
   display: none;
 }
-
-
-
-
-.copyrights {
-  border-top: 1px dashed rgba(255, 255, 255, 0.1);
-  background-color: #1f1f1f;
-  box-sizing: border-box;
-  width: 100%;
-  text-align: center;
-  padding: 30px 0px;
-  overflow: hidden;
-  margin-top: 200px;
-}
-
-
 
 /* 
   Declare all styles using placeholder selectors using the same old BEM syntax we all know and love.
@@ -1618,8 +1593,6 @@ td:last-child {text-align:center;}
 *:after {
   box-sizing: border-box;
 }
-
-
 
 .button {
   --lightness: 62%;
@@ -1661,110 +1634,6 @@ td:last-child {text-align:center;}
   --hue: 10;
 }
 
-
-/* BARRA DE NAVEGACIÓN   */
-
-
-nav
-{
-    position: absolute;
-    right: 0;
-    left: 0;
-    width: 319px;
-    display: table;
-    margin: 0 auto;
-    transform: translateY(-50%);
-}
-
-nav a
-{
-    position: relative;
-    width: 33.333%;
-    display: table-cell;
-    text-align: center;
-    color: #b11c1c;
-    text-decoration: none;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
-    padding: 10px 20px;
-    transition: 0.2s ease color;
-}
-
-nav a:before, nav a:after
-{
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    transform: scale(0);
-    transition: 0.2s ease transform;
-}
-
-nav a:before
-{
-    top: 0;
-    left: 10px;
-    width: 6px;
-    height: 6px;
-}
-
-nav a:after
-{
-    top: 5px;
-    left: 18px;
-    width: 4px;
-    height: 4px
-}
-
-nav a:nth-child(1):before
-{
-    background-color: yellow;
-}
-
-nav a:nth-child(1):after
-{
-    background-color: red;
-}
-
-nav a:nth-child(2):before
-{
-    background-color: #00e2ff;
-}
-
-nav a:nth-child(2):after
-{
-    background-color: #89ff00;
-}
-
-nav a:nth-child(3):before
-{
-    background-color: purple;
-}
-
-nav a:nth-child(3):after
-{
-    background-color: palevioletred;
-}
-
-nav a:nth-child(4):before
-{
-    background-color: rgb(47, 128, 0);
-}
-
-nav a:nth-child(4):after
-{
-    background-color: rgb(185, 216, 112);
-}
-
-nav a:nth-child(5):before
-{
-    background-color: rgb(0, 30, 128);
-}
-
-nav a:nth-child(5):after
-{
-    background-color: palevioletred;
-}
-
 #indicator
 {
     position: absolute;
@@ -1775,43 +1644,6 @@ nav a:nth-child(5):after
     background-color: #fff;
     border-radius: 5px;
     transition: 0.2s ease left;
-}
-
-nav a:hover
-{
-    color: #fff;
-}
-
-nav a:hover:before, nav a:hover:after
-{
-    transform: scale(1);
-}
-
-nav a:nth-child(1):hover ~ #indicator
-{
-    background: linear-gradient(130deg, yellow, red);
-}
-
-nav a:nth-child(2):hover ~ #indicator
-{
-    left: 25%;
-    background: linear-gradient(130deg, #00e2ff, #89ff00);
-}
-
-nav a:nth-child(3):hover ~ #indicator
-{
-    left: 48%;
-    background: linear-gradient(130deg, purple, palevioletred);
-}
-nav a:nth-child(4):hover ~ #indicator
-{
-    left: 70%;
-    background: linear-gradient(130deg, rgb(47, 128, 0), rgb(185, 216, 112));
-}
-nav a:nth-child(5):hover ~ #indicator
-{
-    left: 89%;
-    background: linear-gradient(130deg, rgb(0, 30, 128), palevioletred);
 }
 
 #ytd-url {
