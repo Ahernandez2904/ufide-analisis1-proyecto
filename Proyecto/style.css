@@ -329,6 +329,8 @@ a img.aligncenter {
     opacity: .6;
 }
 
+.small-main-banner { height: 40% !important; }
+
 .heading {
 	color: #fff;
 	display: table-cell;
@@ -351,8 +353,11 @@ a img.aligncenter {
 	padding: 20px 0px;
 }
 
-.heading h3 {
-	color: ffffff;
+.heading h3 { color: ffffff; }
+
+.small-heading { 
+    height: 40% !important; 
+    padding-top: 100px;
 }
 
 .cd-words-wrapper {
