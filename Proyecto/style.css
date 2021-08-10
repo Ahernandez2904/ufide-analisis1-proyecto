@@ -2401,7 +2401,7 @@ select.mobile-device {
 }
 
 .datatable-button {
-    text-align: center;
+    text-align: left;
     border-radius: 0%;
     display: inline-block;
     font: normal normal normal 30px/1 FontAwesome;

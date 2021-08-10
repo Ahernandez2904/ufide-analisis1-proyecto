@@ -167,18 +167,15 @@ $(document).ready(function() {
 	// DataTable initialisation
 	$('#example').DataTable(
 		{
+			"language":{
+				"info": "Mostrando _START_ de _END_ de _TOTAL_ resultados",
+				"search": "Buscar: "
+			},
 			"dom": '<"dt-buttons"Bf><"clear">lirtp',
 			"paging": false,
 			"autoWidth": true,
 			"columnDefs": [{ "orderable": false, "targets": 5 }],
-			"buttons": [
-				'colvis',
-				'copyHtml5',
-        		'csvHtml5',
-				'excelHtml5',
-				'pdfHtml5',
-				'print'
-			]
+			"buttons": []
 		}
 	);
 	//Add row button
