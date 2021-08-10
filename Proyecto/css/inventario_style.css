@@ -1366,7 +1366,6 @@ be a descendant of the grid when it is being dragged.
 	z-index: 123456;
 }
 body{
-  font-family: 'Nunito', sans-serif;
   background: #F3F5F9;
 }
 .card{
@@ -1384,14 +1383,13 @@ h2{
   margin-bottom: 20px;
 }
 .btn{
-  font-size: 15px !important;
+  font-size: 15px;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 2.5px;
-  font-family: 'Nunito', sans-serif;
   box-shadow: none !important;
   border: 0;
-  padding: 10px 20px !important;
+  padding: 10px 20px;
 }
 .btn:focus{
   box-shadow: none;

@@ -665,7 +665,6 @@ TODO: more distinction between this file and common.css
   font-size: 1em;
   text-align: center;
   overflow: hidden;
-  font-family: "Courier New", Courier, monospace;
   /* don't allow browser text-selection */
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -674,13 +673,6 @@ TODO: more distinction between this file and common.css
   -ms-user-select: none;
   user-select: none; }
 
-/*
-Acceptable font-family overrides for individual icons:
-  "Arial", sans-serif
-  "Times New Roman", serif
-
-NOTE: use percentage font sizes or else old IE chokes
-*/
 .fc-icon:after {
   position: relative; }
 
@@ -1207,7 +1199,6 @@ be a descendant of the grid when it is being dragged.
   overflow: hidden;
   line-height: 8px;
   font-size: 11px;
-  font-family: monospace;
   text-align: center;
   cursor: s-resize; }
 
@@ -1380,7 +1371,6 @@ h2{
   font-size: 22px;
   text-align: center;
   letter-spacing: 1px;
-  font-family: 'Montserrat', sans-serif;
   color: #002147;
   margin-bottom: 20px;
 }
@@ -1389,7 +1379,6 @@ h2{
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 2.5px;
-  font-family: 'Nunito', sans-serif;
   box-shadow: none !important;
   border: 0;
   padding: 10px 20px !important;
@@ -1417,7 +1406,6 @@ h2{
   font-weight: 700;
   font-size: 18px;
   letter-spacing: 1px;
-  font-family: 'Montserrat', sans-serif;
   color: #002147;
   margin-bottom: 20px;
 }
@@ -1482,7 +1470,6 @@ h2{
 	color: rgb(255, 254, 254);
 	display: block;
 	float: left;
-	font-family: 'Cabin', helvetica, arial, sans-serif;
 	font-size: 13px;
 	font-weight: 400;
 	height: 40px;
@@ -1523,7 +1510,6 @@ h2{
 	color: #fff;
 	display: block;
 	float: left;
-	font-family: 'Cabin', helvetica, arial, sans-serif;
 	font-size: 13px;
 	font-weight: 400;
 	height: 40px;
@@ -1599,7 +1585,6 @@ td:last-child {text-align:center;}
   --hue: 190;
   outline: transparent;
  
-  font-family: sans-serif;
   font-size: 1rem;
   border-radius: 6px;
   border: 0;
@@ -1654,7 +1639,6 @@ td:last-child {text-align:center;}
   padding: 10px 14px;
   margin: 20px;
   color: #fff;
-  font-family: Arial;
   font-size: 14px;
   text-decoration: none;
   background-color: #000;
