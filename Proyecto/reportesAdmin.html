@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
-     <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="css/bootstrap.min.css">
-     <!-- Site CSS -->
-     <link rel="stylesheet" href="style.css">
-     <!-- Responsive CSS -->
-     <link rel="stylesheet" href="css/responsive.css">
-     <!-- Custom CSS -->
-     <link rel="stylesheet" href="css/custom.css">
-     <script src="js/modernizr.js"></script> <!-- Modernizr -->
-     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-     
-     <meta charset="UTF-8">
-     <title></title>
- 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="js/modernizr.js"></script> <!-- Modernizr -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    
+    <meta charset="UTF-8">
+    <title>Reportes - FUNG Servicio Automotriz</title>
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <img class="img-fluid" src="images/LogoFung.png" alt="" />
+    </a>
  
      <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
      <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
@@ -33,13 +35,12 @@
           <img class="img-fluid" src="images/LogoFung.png" alt="" />
         </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
         <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger active" href="indexCliente.html">Home</a>
+            <a class="nav-link js-scroll-trigger" href="indexAdmin.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="citasAdmin.html">Citas</a>
@@ -67,12 +68,11 @@
       </div>
       </nav>
       
-      <section id="home" class="main-banner parallaxie" style="background: url('uploads/mecanica.jpg')">
-        <div class="heading">
+      <section id="home" class="main-banner small-main-banner parallaxie" style="background: url('uploads/mecanica.jpg')">
+        <div class="heading small-heading">
           <h1></h1>
           <h3 class="cd-headline clip is-full-width">
             <span>Bienvenido: "Admin"</span>
-            
           </h3>
         </div>
       </section>
@@ -86,7 +86,7 @@
 <button type="button" class="btn btn-primary">Reporte Vehiculos</button>
 </div>
 <br>
-<center>
+<div class="text-center">
 	<div id="piechart"></div>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -115,7 +115,7 @@ function drawChart() {
   chart.draw(data, options);
 }
 </script>
-</center>
+</div>
     
 </body>
 </html>
