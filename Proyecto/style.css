@@ -2410,7 +2410,7 @@ select.mobile-device {
 
 .datatable-button:hover { color: var(--fung-red) }
 
-.btn-primary { background-color: var(--fung-red) !important; }
+.btn-primary { background-color: #333333; }
 
 /*------------------------------------------------------------------
     FULLCALENDAR.IO
