@@ -98,6 +98,7 @@
 				<th>Correo</th>
 				<th>Teléfono</th>
 				<th>Editar/Eliminar</th>
+				<th>Vehículos</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -110,6 +111,7 @@
 					<button data-toggle="modal" data-target="#modalEditarCita" class="button--save datatable-button fa-edit"></button>
 					<button class="button--delete datatable-button fa-trash"></button>
 				</td>
+				<td><button class="datatable-button fa-car" data-toggle="modal" data-target="#modalVehiculo"></button></td>
 			</tr>
 			<tr>
 				<td>002</td>
@@ -120,6 +122,7 @@
 					<button data-toggle="modal" data-target="#modalEditarCita" class="button--save datatable-button fa-edit"></button>
 					<button class="button--delete datatable-button fa-trash"></button>
 				</td>
+				<td><button class="datatable-button fa-car" data-toggle="modal" data-target="#modalVehiculo"></button></td>
 			</tr>
 		</tbody>
 	</table>
@@ -153,6 +156,23 @@
 					<div class="modal-footer">
 						<button type="submit" class="btn btn-primary">Guardar</button>
 						<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="modalVehiculo" class="modal modal-top fade">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<form id="add-event">
+					<div class="modal-body">
+						<div class="form-group">
+							Información de los vehículos...
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+						</div>
 					</div>
 				</form>
 			</div>
