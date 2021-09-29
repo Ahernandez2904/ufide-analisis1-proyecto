@@ -17,18 +17,18 @@
 		<meta name="author" content="">
 
 		<!-- Site Icons -->
-		<link rel="shortcut icon" href="images/LofoFungU.ico" type="image/x-icon" />
-		<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+		<link rel="shortcut icon" href="../../public/images/LofoFungU.ico" type="image/x-icon" />
+		<link rel="apple-touch-icon" href="../../public/images/apple-touch-icon.png">
 
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/bootstrap.min.css">
 		<!-- Site CSS -->
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="../css/style.css">
 		<!-- Responsive CSS -->
-		<link rel="stylesheet" href="css/responsive.css">
+		<link rel="stylesheet" href="../css/responsive.css">
 		<!-- Custom CSS -->
-		<link rel="stylesheet" href="css/custom.css">
-		<script src="js/modernizr.js"></script> <!-- Modernizr -->
+		<link rel="stylesheet" href="../css/custom.css">
+		<script src="../js/modernizr.js"></script> <!-- Modernizr -->
 		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
 		<!--[if lt IE 9]>
@@ -49,35 +49,35 @@
 		  <div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav text-uppercase ml-auto">
 				  <li class="nav-item">
-					  <a class="nav-link js-scroll-trigger" href="indexAdmin.html">Inicio</a>
+					  <a class="nav-link js-scroll-trigger" href="indexAdmin.blade.php">Inicio</a>
 				</li>
 				<li class="nav-item">
-					  <a class="nav-link js-scroll-trigger" href="citasAdmin.html">Citas</a>
+					  <a class="nav-link js-scroll-trigger" href="citasAdmin.blade.php">Citas</a>
 				</li>
 				<li class="nav-item">
-					  <a class="nav-link js-scroll-trigger" href="inventarioAdmin.html">Inventario</a>
+					  <a class="nav-link js-scroll-trigger" href="inventarioAdmin.blade.php">Inventario</a>
 				</li>
 				<li class="nav-item">
-					  <a class="nav-link js-scroll-trigger" href="serviciosAdmin.html">Servicios</a>
+					  <a class="nav-link js-scroll-trigger" href="serviciosAdmin.blade.php">Servicios</a>
 				</li>
 				<li class="nav-item">
-					  <a class="nav-link js-scroll-trigger" href="feedbackAdmin.html">Feedback</a>
+					  <a class="nav-link js-scroll-trigger" href="feedbackAdmin.blade.php">Feedback</a>
 				</li>
 				<li class="nav-item">
-					  <a class="nav-link js-scroll-trigger" href="clientesAdmin.html">Clientes</a>
+					  <a class="nav-link js-scroll-trigger" href="clientesAdmin.blade.php">Clientes</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link js-scroll-trigger" href="perfilAdmin.html">Perfil</a>
+					<a class="nav-link js-scroll-trigger" href="perfilAdmin.blade.php">Perfil</a>
 				  </li>
 				<li class="nav-item">
-					  <a class="nav-link js-scroll-trigger" href="index.html">Cerrar Sesión</a>
+					  <a class="nav-link js-scroll-trigger" href="index.blade.php">Cerrar Sesión</a>
 				</li>
 			</ul>
 		  </div>
 		</div>
 	  </nav>
 	  
-	  <section id="home" class="main-banner small-main-banner parallaxie" style="background: url('uploads/mecanica.jpg')">
+	  <section id="home" class="main-banner small-main-banner parallaxie" style="background: url('../../public/uploads/mecanica.jpg')">
 		  <div class="heading small-heading">
 			  <h1></h1>
 			  <h3 class="cd-headline clip is-full-width">
@@ -207,7 +207,7 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/i18n/datepicker.en.js'></script>
-	<script src="js/citas_script.js"></script>
+	<script src="../js/citas_script.js"></script>
 
 
 
