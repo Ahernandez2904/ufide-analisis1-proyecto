@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  <head>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <!-- Site CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <!-- Responsive CSS -->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css">
-    <script src="js/modernizr.js"></script> <!-- Modernizr -->
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="../js/modernizr.js"></script> <!-- Modernizr -->
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     
     <meta charset="UTF-8">
     <title>Reportes - FUNG Servicio Automotriz</title>
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
-      <img class="img-fluid" src="images/LogoFung.png" alt="" />
+      <img class="img-fluid" src="../../public/images/LogoFung.png" alt="" />
     </a>
  
-     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap">
      <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
      <link rel='stylesheet' href='https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css'>
      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/css/datepicker.css'>
-     <link rel="stylesheet" href="css/inventario_style.css">
-     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="../css/inventario_style.css">
  
  </head>
  
@@ -32,7 +31,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
-          <img class="img-fluid" src="images/LogoFung.png" alt="" />
+          <img class="img-fluid" src="../../public/images/LogoFung.png" alt="" />
         </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>
@@ -68,7 +67,7 @@
       </div>
       </nav>
       
-      <section id="home" class="main-banner small-main-banner parallaxie" style="background: url('uploads/mecanica.jpg')">
+      <section id="home" class="main-banner small-main-banner parallaxie" style="background: url('../../public/uploads/mecanica.jpg')">
         <div class="heading small-heading">
           <h1></h1>
           <h3 class="cd-headline clip is-full-width">
@@ -82,8 +81,8 @@
 <br>
 <br>
 <div class="center">
-<button type="button" class="btn btn-primary" >Reporte Encuesta</button>
-<button type="button" class="btn btn-primary">Reporte Vehiculos</button>
+  <button type="button" class="btn btn-primary">Reporte Encuesta</button>
+  <button type="button" class="btn btn-primary">Reporte Vehículos</button>
 </div>
 <br>
 <div class="text-center">

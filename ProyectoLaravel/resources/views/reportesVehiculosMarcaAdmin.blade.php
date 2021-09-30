@@ -2,18 +2,18 @@
 <html lang="en">
 
    <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <link rel="stylesheet" href="../css/bootstrap.min.css">
    <!-- Site CSS -->
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="../style.css">
    <!-- Responsive CSS -->
-   <link rel="stylesheet" href="css/responsive.css">
+   <link rel="stylesheet" href="../css/responsive.css">
    <!-- Custom CSS -->
-   <link rel="stylesheet" href="css/custom.css">
-   <script src="js/modernizr.js"></script> <!-- Modernizr -->
+   <link rel="stylesheet" href="../css/custom.css">
+   <script src="../js/modernizr.js"></script> <!-- Modernizr -->
    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
    
    	<a class="navbar-brand js-scroll-trigger" href="#page-top">
-		<img class="img-fluid" src="images/LogoFung.png" alt="" />
+		<img class="img-fluid" src="../../public/images/LogoFung.png" alt="" />
 	</a>
 
    <meta charset="UTF-8">
@@ -24,8 +24,8 @@
    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
    <link rel='stylesheet' href='https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css'>
    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/css/datepicker.css'>
-   <link rel="stylesheet" href="css/inventario_style.css">
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="../css/inventario_style.css">
+   <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
@@ -34,7 +34,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
 		<div class="container">
 		  <a class="navbar-brand js-scroll-trigger" href="#page-top">
-			  <img class="img-fluid" src="images/LogoFung.png" alt="" />
+			  <img class="img-fluid" src="../../public/images/LogoFung.png" alt="" />
 		  </a>
 		  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 			Menu
@@ -71,7 +71,7 @@
 		</div>
 	  </nav>
 	  
-      <section id="home" class="main-banner small-main-banner parallaxie" style="background: url('uploads/mecanica.jpg')">
+      <section id="home" class="main-banner small-main-banner parallaxie" style="background: url('../../public/images/mecanica.jpg')">
         <div class="heading small-heading">
           <h1></h1>
           <h3 class="cd-headline clip is-full-width">
@@ -114,18 +114,18 @@
 
     
     <!-- ALL JS FILES -->
-    <script src="js/all.js"></script>
+    <script src="../js/all.js"></script>
 	<!-- Camera Slider -->
-	<script src="js/jquery.mobile.customized.min.js"></script>
-	<script src="js/jquery.easing.1.3.js"></script> 
-	<script src="js/parallaxie.js"></script>
-	<script src="js/headline.js"></script>
+	<script src="../js/jquery.mobile.customized.min.js"></script>
+	<script src="../js/jquery.easing.1.3.js"></script> 
+	<script src="../js/parallaxie.js"></script>
+	<script src="../js/headline.js"></script>
 	<!-- Contact form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+    <script src="../js/jqBootstrapValidation.js"></script>
+    <script src="../js/contact_me.js"></script>
     <!-- ALL PLUGINS -->
-    <script src="js/custom.js"></script>
-    <script src="js/jquery.vide.js"></script>
+    <script src="../js/custom.js"></script>
+    <script src="../js/jquery.vide.js"></script>
 
 </body>
 </html>

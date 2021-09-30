@@ -29,7 +29,7 @@
 		<link rel="stylesheet" href="../css/responsive.css">
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="../css/custom.css">
-		<script src="js/modernizr.js"></script> <!-- Modernizr -->
+		<script src="../js/modernizr.js"></script> <!-- Modernizr -->
 		<!-- Schedules CSS -->
 		<link rel="stylesheet" href="../css/citas_style.css">
 		<!--[if lt IE 9]>
