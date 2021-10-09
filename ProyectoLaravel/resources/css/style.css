@@ -12,12 +12,12 @@
     IMPORT FILES
 -------------------------------------------------------------------*/
 
-@import url(css/animate.css);
-@import url(css/camera.css);
-@import url(css/flaticon.css);
-@import url(css/prettyPhoto.css);
-@import url(css/owl.carousel.css);
-@import url(css/font-awesome.min.css);
+@import url(../css/animate.css);
+@import url(../css/camera.css);
+@import url(../css/flaticon.css);
+@import url(../css/prettyPhoto.css);
+@import url(../css/owl.carousel.css);
+@import url(../css/font-awesome.min.css);
 
 /*------------------------------------------------------------------
     SKELETON
@@ -2045,7 +2045,7 @@ select.mobile-device {
 
 .contact_form .form-control::-ms-input-placeholder { color: #bcbcbc; }
 
-#contact { background: url(images/1.jpg) no-repeat center center #ffffff; }
+#contact { background: url(../../public/images/1.jpg) no-repeat center center #ffffff; }
 
 .contact_form textarea.form-control{ min-height: 225px; }
 
