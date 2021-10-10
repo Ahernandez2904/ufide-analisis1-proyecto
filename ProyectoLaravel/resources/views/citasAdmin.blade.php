@@ -50,42 +50,42 @@
 		<!-- Navigation -->
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
 			<div class="container">
-			  <a class="navbar-brand js-scroll-trigger" href="#page-top">
-				  <img class="img-fluid" src="../../public/images/LogoFung.png" alt="" />
-			  </a>
-			  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				<i class="fa fa-bars"></i>
-			  </button>
-			  <div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav text-uppercase ml-auto">
-					  <li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="indexAdmin.blade.php">Inicio</a>
-					</li>
-					<li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="citasAdmin.blade.php">Citas</a>
-					</li>
-					<li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="inventarioAdmin.blade.php">Inventario</a>
-					</li>
-					<li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="serviciosAdmin.blade.php">Servicios</a>
-					</li>
-					<li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="feedbackAdmin.blade.php">Feedback</a>
-					</li>
-					<li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="clientesAdmin.blade.php">Clientes</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="perfilAdmin.blade.php">Perfil</a>
-					  </li>
-					<li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="index.blade.php">Cerrar Sesión</a>
-					</li>
-				</ul>
-			  </div>
+				<a class="navbar-brand js-scroll-trigger" href="#page-top">
+					<img class="img-fluid" src="../../public/images/LogoFung.png" alt="" />
+				</a>
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+					<i class="fa fa-bars"></i>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav text-uppercase ml-auto">
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="indexAdmin.blade.php">Inicio</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="citasAdmin.blade.php">Citas</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="inventarioAdmin.blade.php">Inventario</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="serviciosAdmin.blade.php">Servicios</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="feedbackAdmin.blade.php">Feedback</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="clientesAdmin.blade.php">Clientes</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="perfilAdmin.blade.php">Perfil</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="index.blade.php">Cerrar Sesión</a>
+						</li>
+					</ul>
+			  	</div>
 			</div>
-		  </nav>
+		</nav>
 		
 		<section id="home" class="main-banner small-main-banner parallaxie" style="background: url('../../public/uploads/mecanica.jpg')">
 			<div class="heading small-heading">
@@ -152,6 +152,7 @@
 				<tr>
 					<th>Fecha</th>
 					<th>Hora</th>
+					<th>Usuario</th>
 					<th>Marca Automóvil</th>
 					<th>Modelo</th>
 					<th>Año</th>
@@ -160,59 +161,25 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td>2020/02/18</td>
-					<td>4:00 pm</td>
-					<td>Chevrolete</td>
-					<td>Cruze</td>
-					<td>2017</td>
-					<td>
-						<button data-toggle="modal" data-target="#modalEditarCita" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
-					</td>
-				</tr>
-				<tr>
-					<td>2020/10/06</td>
-					<td>4:00 pm</td>
-					<td>Mitsubishi</td>
-					<td>Lancer</td>
-					<td>2015</td>
-					<td>
-						<button data-toggle="modal" data-target="#modalEditarCita" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
-					</td>
-				</tr>
-				<tr>
-					<td>2021/02/26</td>
-					<td>1:00 pm</td>
-					<td>Honda</td>
-					<td>Civic</td>
-					<td>2017</td>
-					<td>
-						<button data-toggle="modal" data-target="#modalEditarCita" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
-					</td>
-				</tr>
-				<tr>
-					<td>2021/01/19</td>
-					<td>10:00 am</td>
-					<td>Toyota</td>
-					<td>Corolla</td>
-					<td>2017</td>
-					<td>
-						<button data-toggle="modal" data-target="#modalEditarCita" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
-					</td>
-				</tr>
-				<tr>
-					<td>2020/07/02</td>
-					<td>7:00 am</td>
-					<td>Hyundai</td>
-					<td>Elantra</td>
-					<td>2017</td>
-					<td>
-						<button data-toggle="modal" data-target="#modalEditarCita" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
-					</td>
+					@forelse($citas as $cita)
+						<td>{{$cita->fecha->format('Y-m-d')}}</td>
+						<td>{{$cita->fecha->format('H:i:s')}}</td>
+						<td>{{$cita->usuario}}</td>
+						<td>{{$cita->marca}}</td>
+						<td>{{$cita->modelo}}</td>
+						<td>{{$cita->anio}}</td>
+						<td>
+							<button data-toggle="modal" data-target="#modalEditarCita" 
+							class="button--save datatable-button fa-edit"></button>
+							<form method="POST" action="{{ url('/CitasAdmin/'.$cita->id) }}">
+								@csrf 
+								{{ @method_field('DELETE') }}
+								<button class="button--delete datatable-button fa-trash"></button>
+							</form>
+						</td>
+					@empty
+						No hay datos que mostrar.
+					@endforelse
 				</tr>
 			</tbody>
 		</table>

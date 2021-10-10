@@ -17,8 +17,8 @@
 		<meta name="author" content="">
 
 		<!-- Site Icons -->
-		<link rel="shortcut icon" href="images/LofoFungU.ico" type="image/x-icon" />
-		<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+		<link rel="shortcut icon" href="../../public/images/LofoFungU.ico" type="image/x-icon" />
+		<link rel="apple-touch-icon" href="../../public/images/apple-touch-icon.png">
 		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
 		<!-- Bootstrap CSS -->
@@ -106,6 +106,7 @@
 			<div class="modal-dialog modal-dialog-centered">
 			  <div class="modal-content">
 				<form id="add-event">
+					@csrf
 				  <div class="modal-body">
 					<h4>Favor ingresar datos del vehículo</h4>        
 					<div class="form-group">
@@ -154,59 +155,23 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td>2020/02/18</td>
-					<td>4:00 pm</td>
-					<td>Chevrolete</td>
-					<td>Cruze</td>
-					<td>2017</td>
-					<td>
-						<button data-toggle="modal" data-target="#modalEditarCita" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
-					</td>
-				</tr>
-				<tr>
-					<td>2020/10/06</td>
-					<td>4:00 pm</td>
-					<td>Mitsubishi</td>
-					<td>Lancer</td>
-					<td>2015</td>
-					<td>
-						<button data-toggle="modal" data-target="#modalEditarCita" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
-					</td>
-				</tr>
-				<tr>
-					<td>2021/02/26</td>
-					<td>1:00 pm</td>
-					<td>Honda</td>
-					<td>Civic</td>
-					<td>2017</td>
-					<td>
-						<button data-toggle="modal" data-target="#modalEditarCita" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
-					</td>
-				</tr>
-				<tr>
-					<td>2021/01/19</td>
-					<td>10:00 am</td>
-					<td>Toyota</td>
-					<td>Corolla</td>
-					<td>2017</td>
-					<td>
-						<button data-toggle="modal" data-target="#modalEditarCita" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
-					</td>
-				</tr>
-				<tr>
-					<td>2020/07/02</td>
-					<td>7:00 am</td>
-					<td>Hyundai</td>
-					<td>Elantra</td>
-					<td>2017</td>
-					<td>
-						<button data-toggle="modal" data-target="#modalEditarCita" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
-					</td>
+					@forelse($citas as $cita)
+						<td>{{date('Y-m-d', strtotime($cita->fecha))}}</td>
+						<td>{{date('H:i:s', strtotime($cita->fecha))}}</td>
+						<td>{{$cita->marca}}</td>
+						<td>{{$cita->modelo}}</td>
+						<td>{{$cita->anio}}</td>
+						<td>
+							<button data-toggle="modal" data-target="#modalEditarCita" class="button--save datatable-button fa-edit"></button>
+							<form method="POST" action="{{ url('/Citas/'.$cita->id) }}">
+								@csrf 
+								{{ @method_field('DELETE') }}
+								<button class="button--delete datatable-button fa-trash"></button>
+							</form>
+						</td>
+					@empty
+						No hay datos que mostrar.
+					@endforelse
 				</tr>
 			</tbody>
 		</table>
