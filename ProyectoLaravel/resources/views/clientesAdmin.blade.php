@@ -86,46 +86,39 @@
 		  </div>
 	  </section>
 
-	<!-- tabla -->
+
+
+
 	<div class="section-title text-center">
 		<br><h3>Listado de clientes</h3>
 	</div>
-	<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-		<thead>
-			<tr>
-				<th>Código del Cliente</th>
-				<th>Nombre del Cliente</th>
-				<th>Correo</th>
-				<th>Teléfono</th>
-				<th>Editar/Eliminar</th>
-				<th>Vehículos</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>001</td>
-				<td>Greivin</td>
-				<td>gregrg@gmail.com</td>
-				<td>2484154</td>
-				<td>
-					<button data-toggle="modal" data-target="#modalEditarCita" class="button--save datatable-button fa-edit"></button>
-					<button class="button--delete datatable-button fa-trash"></button>
-				</td>
-				<td><button class="datatable-button fa-car" data-toggle="modal" data-target="#modalVehiculo"></button></td>
-			</tr>
-			<tr>
-				<td>002</td>
-				<td>Greivin2</td>
-				<td>gregrg2@gmail.com</td>
-				<td>2484134</td>
-				<td>
-					<button data-toggle="modal" data-target="#modalEditarCita" class="button--save datatable-button fa-edit"></button>
-					<button class="button--delete datatable-button fa-trash"></button>
-				</td>
-				<td><button class="datatable-button fa-car" data-toggle="modal" data-target="#modalVehiculo"></button></td>
-			</tr>
-		</tbody>
-	</table>
+
+
+		<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<th>Código del Cliente</th>
+					<th>Nombre del Cliente</th>
+					<th>Apellidos</th>
+					<th>Correo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+
+					@forelse ($clientesAdmin as $clienteAdminItem)
+						
+							<td>{{$clienteAdminItem->id}}</td>
+							<td>{{$clienteAdminItem->nombre}}</td>
+							<td>{{$clienteAdminItem->apellidos}}</td>
+							<td>{{$clienteAdminItem->correo}}</td>	
+						
+					@empty		
+						No hay datos que mostrar.			
+					@endforelse
+				</tr>			
+			</tbody>
+		</table>
 
 	<div id="modalEditarCita" class="modal modal-top fade">
 		<div class="modal-dialog modal-dialog-centered">
