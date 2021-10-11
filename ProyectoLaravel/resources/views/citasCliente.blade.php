@@ -59,6 +59,7 @@
 	<table id="" class="table table-striped table-bordered" cellspacing="0" width="100%">
 		<thead>
 			<tr>
+				<th>Id</th>
 				<th>Fecha</th>
 				<th>Hora</th>
 				<th>Marca Automóvil</th>
@@ -70,6 +71,7 @@
 		<tbody>
 			<tr>
 				@forelse($citas as $cita)
+					<td>{{$cita->id}}</td>
 					<td>{{date('Y-m-d', strtotime($cita->fecha))}}</td>
 					<td>{{date('H:i:s', strtotime($cita->fecha))}}</td>
 					<td>{{$cita->marca}}</td>
@@ -97,6 +99,10 @@
 					@csrf
 					{{ @method_field('PATCH') }}
 					<div class="modal-body">
+						<div class="form-group">
+							<label>Identificador de la cita</label>
+							<input type="text" class="form-control" name="Id" id="Id" value="{{$cita->id}}" disabled>
+						</div>
 						<div class="form-group">
 							<label>Fecha</label>
 							<input type="date" class="form-control" name="Fecha" id="Fecha">

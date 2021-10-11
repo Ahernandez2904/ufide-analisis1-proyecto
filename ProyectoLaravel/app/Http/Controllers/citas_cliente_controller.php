@@ -43,28 +43,6 @@ class citas_cliente_controller extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -73,7 +51,13 @@ class citas_cliente_controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::select('CALL `fungdb`.`modificar_cita`('.
+        $request->input('Id').',"'.
+        $request->input('Fecha').' '.$request->input('Hora').':00", '.
+        $request->input('Usuario').','.
+        $request->input('Vehiculo').');');
+        return redirect()->route('Citas.index');
+        //return response()->json($request);
     }
 
     /**
