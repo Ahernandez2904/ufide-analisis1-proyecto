@@ -18,7 +18,7 @@ class citas_admin_controller extends Controller
         //$usuario->session()->get('id'); 
         $usuario = '2'; //test en lo que se averigua como sacar el usuario de session storage
         //->paginate(20); //resolver lo de la paginacion
-        $citas = DB::select('CALL `fungdb`.`mostar_todos_cita`();');
+        $citas = DB::select('CALL `fungdb`.`mostrar_todos_cita`();');
         return view('citasAdmin', [ "citas" => $citas ]);
     }
 
