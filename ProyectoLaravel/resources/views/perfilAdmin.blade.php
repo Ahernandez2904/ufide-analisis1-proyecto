@@ -95,13 +95,14 @@
 				</h3>
 			</div>
 		</section>
-
+				
 		<!--Contenido-->
 		<div id="modalVehiculo" class="modal modal-top fade">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
-					<form method="POST" action="{{route("perfilesAdmin.store")}}" id="add-event">
-						<div class="modal-body">
+					<form method="POST" action="{{ route('perfilAdmin.store')}}" id="add-event">
+						@csrf
+					<div class="modal-body">
 							<div class="form-group">
 								<label>Año</label>
 								<input required autocomplete="off" name="anio" class="form-control"
@@ -137,7 +138,7 @@
 			<div id="modalVehiculoView" class="modal modal-top fade">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
-					<form method="POST" action="{{route("perfilesAdmin.store")}}" id="add-event">
+					<form method="POST" action="" id="add-event">
 						<div class="modal-body">
 							<div class="form-group">
 								<label>Año</label>
@@ -294,4 +295,6 @@
 		<script src='https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js'></script>
 		<script src='https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js'></script>
 	</body>
+	
 </html>
+

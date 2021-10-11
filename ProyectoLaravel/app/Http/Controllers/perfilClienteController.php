@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\perfilAdmin;
+use App\Models\perfilCliente;
 use Illuminate\Http\Request;
 
-class perfilAdminController extends Controller
+class perfilClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,7 @@ class perfilAdminController extends Controller
     public function index()
     {
         //
-
-       
-        return view ('perfilAdmin');
+        return view ('perfilCliente');
     }
 
     /**
@@ -28,7 +26,8 @@ class perfilAdminController extends Controller
     public function create()
     {
         //
-        return view ("perfilAdmin.blade.php");
+
+        return view ("perfilCliente.blade.php");
     }
 
     /**
@@ -40,23 +39,18 @@ class perfilAdminController extends Controller
     public function store(Request $request)
     {
         //
-        //$perfilAdmin = new perfilAdmin($request->input());
-    //$perfilAdmin->saveOrFail();
-    //return redirect()->route("perfilesAdmin.perfilAdmin")->with(["mensaje" => "vehiculo guardado",   ]);
-    perfilAdmin::create($request->all());
-        return view ("perfilAdmin");
-        
-   
- 
+
+        perfilCliente::create($request->all());
+        return view ("perfilCliente");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\perfilAdmin  $perfilAdmin
+     * @param  \App\Models\perfilCliente  $perfilCliente
      * @return \Illuminate\Http\Response
      */
-    public function show(perfilAdmin $perfilAdmin)
+    public function show(perfilCliente $perfilCliente)
     {
         //
     }
@@ -64,10 +58,10 @@ class perfilAdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\perfilAdmin  $perfilAdmin
+     * @param  \App\Models\perfilCliente  $perfilCliente
      * @return \Illuminate\Http\Response
      */
-    public function edit(perfilAdmin $perfilAdmin)
+    public function edit(perfilCliente $perfilCliente)
     {
         //
     }
@@ -76,10 +70,10 @@ class perfilAdminController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\perfilAdmin  $perfilAdmin
+     * @param  \App\Models\perfilCliente  $perfilCliente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, perfilAdmin $perfilAdmin)
+    public function update(Request $request, perfilCliente $perfilCliente)
     {
         //
     }
@@ -87,10 +81,10 @@ class perfilAdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\perfilAdmin  $perfilAdmin
+     * @param  \App\Models\perfilCliente  $perfilCliente
      * @return \Illuminate\Http\Response
      */
-    public function destroy(perfilAdmin $perfilAdmin)
+    public function destroy(perfilCliente $perfilCliente)
     {
         //
     }

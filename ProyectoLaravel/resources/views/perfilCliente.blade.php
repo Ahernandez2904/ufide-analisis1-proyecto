@@ -94,31 +94,33 @@
 		<div id="modalVehiculo" class="modal modal-top fade">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
-					<form id="add-event">
-						<div class="modal-body">
+					<form method="POST" action="{{ route('perfilCliente.store')}}" id="add-event">
+						@csrf
+					<div class="modal-body">
 							<div class="form-group">
 								<label>Año</label>
-								<input type="number" class="form-control" name="">
+								<input required autocomplete="off" name="anio" class="form-control"
+                           type="number" >
 							</div>
 							<div class="form-group">
-								<label>Cilindrado</label>
-								<input type="text" class="form-control" name="">
+								<label>Cilindrada</label>
+								<input type="text" required autocomplete="off" name="cilindraje_motor" class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Marca</label>
-								<input type="text" class="form-control" name="">
+								<input type="text" required autocomplete="off" name="marca" class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Modelo</label>
-								<input type="text" class="form-control" name="">
+								<input type="text" required autocomplete="off" name="modelo" class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Placa</label>
-								<input type="text" class="form-control" name="">
+								<input type="text" required autocomplete="off" name="placa" class="form-control">
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button type="submit" class="btn btn-primary">Guardar</button>
+						<button class="btn btn-success">Guardar</button>
 							<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
 						</div>
 					</form>
