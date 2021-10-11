@@ -17,35 +17,45 @@
 	<div id="modal-view-event-add" class="modal modal-top fade calendar-modal">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
-			<form id="add-event">
-				<div class="modal-body">
-				<h4>Favor ingresar datos del vehículo</h4>        
-				<div class="form-group">
-					<label>Número de Placa del Vehículo</label>
-					<input type="text" class="form-control" name="">
-				</div>
-				<div class="form-group">
-					<label>Marca del Vehículo</label>
-					<input type='text' class="form-control" name="">
-				</div>        
-				<div class="form-group">
-					<label>Cilindraje del Motor</label>
-					<input type='text' class="form-control" name="">
-				</div>
-				<div class="form-group">
-					<label>Año del Vehículo</label>
-					<input type='text' class="form-control" name="">
-				</div>
-				<div class="form-group">
-					<label>Modelo del Vehículo</label>
-					<input type='text' class="form-control" name="">
-				</div> 
-				</div>
-				<div class="modal-footer">
-				<button type="submit" class="btn btn-primary" >Guardar</button>
-				<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>        
-				</div>
-			</form>
+				<form id="add-event" method="POST" action="{{ url('/CitasAdmin') }}">
+					@csrf
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Fecha</label>
+							<input type="date" class="form-control" name="Fecha" id="Fecha">
+						</div>
+						<div class="form-group">
+							<label>Hora</label>
+							<input type="time" class="form-control" name="Hora" id="Hora">
+						</div>
+						<div class="form-group">
+							<label>Usuario</label>
+							<select class="form-control" id="Usuario" name="Usuario">
+								@forelse($usuarios as $usuario)
+									<option value="{{$usuario->id}}">
+										{{$usuario->nombre}} {{$usuario->apellidos}}
+									</option>
+								@empty
+									No hay carros disponibles.
+								@endforelse
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Vehiculo</label>
+							<select class="form-control" id="Vehiculo" name="Vehiculo">
+								@forelse($vehiculos as $vehiculo)
+									<option value="{{$vehiculo->id}}">{{$vehiculo->placa}}</option>
+								@empty
+									No hay carros disponibles.
+								@endforelse
+							</select>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary" >Guardar</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>        
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -66,10 +76,10 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				@forelse($citas as $cita)
-					<td>{{$cita->fecha->format('Y-m-d')}}</td>
-					<td>{{$cita->fecha->format('H:i:s')}}</td>
+			@forelse($citas as $cita)
+				<tr>
+					<td>{{date('Y-m-d', strtotime($cita->fecha))}}</td>
+					<td>{{date('H:i:s', strtotime($cita->fecha))}}</td>
 					<td>{{$cita->usuario}}</td>
 					<td>{{$cita->marca}}</td>
 					<td>{{$cita->modelo}}</td>
@@ -83,42 +93,54 @@
 							<button class="button--delete datatable-button fa-trash"></button>
 						</form>
 					</td>
-				@empty
-					No hay datos que mostrar.
-				@endforelse
-			</tr>
+				</tr>
+			@empty
+				No hay datos que mostrar.
+			@endforelse
 		</tbody>
 	</table>
 
 	<div id="modalEditarCita" class="modal modal-top fade">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
-				<form id="add-event">
+				<form id="add-event" method="POST" action="{{ url('/CitasAdmin/'.$cita->id) }}">
+					@csrf
+					{{ @method_field('PATCH') }}
 					<div class="modal-body">
 						<div class="form-group">
 							<label>Fecha</label>
-							<input type="date" class="form-control" name="">
+							<input type="date" class="form-control" name="Fecha" id="Fecha">
 						</div>
 						<div class="form-group">
 							<label>Hora</label>
-							<input type="time" class="form-control" name="">
+							<input type="time" class="form-control" name="Hora" id="Hora">
 						</div>
 						<div class="form-group">
-							<label>Marca</label>
-							<input type="text" class="form-control" name="">
+							<label>Usuario</label>
+							<select class="form-control" id="Usuario" name="Usuario">
+								@forelse($usuarios as $usuario)
+									<option value="{{$usuario->id}}">
+										{{$usuario->nombre}} {{$usuario->apellidos}}
+									</option>
+								@empty
+									No hay carros disponibles.
+								@endforelse
+							</select>
 						</div>
 						<div class="form-group">
-							<label>Modelo</label>
-							<input type="text" class="form-control" name="">
-						</div>
-						<div class="form-group">
-							<label>Año</label>
-							<input type="number" class="form-control" name="">
+							<label>Vehiculo</label>
+							<select class="form-control" id="Vehiculo" name="Vehiculo">
+								@forelse($vehiculos as $vehiculo)
+									<option value="{{$vehiculo->id}}">{{$vehiculo->placa}}</option>
+								@empty
+									No hay carros disponibles.
+								@endforelse
+							</select>
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary">Guardar</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+						<button type="submit" class="btn btn-primary" >Guardar</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>        
 					</div>
 				</form>
 			</div>

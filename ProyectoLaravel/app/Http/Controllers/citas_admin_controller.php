@@ -19,17 +19,9 @@ class citas_admin_controller extends Controller
         $usuario = '2'; //test en lo que se averigua como sacar el usuario de session storage
         //->paginate(20); //resolver lo de la paginacion
         $citas = DB::select('CALL `fungdb`.`mostrar_todos_cita`();');
-        return view('citasAdmin', [ "citas" => $citas ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //DB::statement('call mostar_cita(id),['.$usuario.']');
+        $vehiculos = DB::select('CALL `fungdb`.`mostrar_todos_vehiculo`();');
+        $usuarios = DB::select('CALL `fungdb`.`mostrar_clientes`();');
+        return view('citasAdmin', [ "citas" => $citas, "vehiculos" => $vehiculos, "usuarios" => $usuarios ]);
     }
 
     /**
@@ -40,7 +32,12 @@ class citas_admin_controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::select('CALL `fungdb`.`crear_cita`("'.
+        $request->input('Fecha').' '.$request->input('Hora').'", '.
+        $request->input('Usuario').','.
+        $request->input('Vehiculo').');');
+        return redirect()->route('CitasAdmin.index');
+        //return response()->json($request);
     }
 
     /**
