@@ -1,8 +1,6 @@
 @extends('layoutAdmin')
 
-@section('titulo')
-	Citas
-@endsection
+@section('titulo','Citas')
 
 @section('contenido')
 	<div class="p-5">
