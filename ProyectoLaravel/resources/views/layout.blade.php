@@ -59,22 +59,22 @@
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav text-uppercase ml-auto">
 						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger" href="indexCliente.blade.php">Inicio</a>
+							<a class="nav-link js-scroll-trigger" href="indexCliente">Inicio</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger" href="citasCliente.blade.php">Citas</a>
+							<a class="nav-link js-scroll-trigger" href="CitasCliente">Citas</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger" href="serviciosCliente.blade.php">Servicios</a>
+							<a class="nav-link js-scroll-trigger" href="serviciosCliente">Servicios</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger" href="feedbackCliente.blade.php">Feedback</a>
+							<a class="nav-link js-scroll-trigger" href="feedbackCliente">Feedback</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger" href="perfilCliente.blade.php">Perfil</a>
+							<a class="nav-link js-scroll-trigger" href="perfilCliente">Perfil</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger" href="index.blade.php">Cerrar Sesión</a>
+							<a class="nav-link js-scroll-trigger" href="index">Cerrar Sesión</a>
 						</li>
 					</ul>
 			  	</div>
