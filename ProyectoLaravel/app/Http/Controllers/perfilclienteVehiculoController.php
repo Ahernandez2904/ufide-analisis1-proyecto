@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\perfilAdmin;
-use Illuminate\Http\Request;
 
-class perfilAdminController extends Controller
+use Illuminate\Http\Request;
+use DoctrineDBALDriverPDOConnection;
+use Illuminate\Support\Facades\DB;
+
+class perfilclienteVehiculoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +17,11 @@ class perfilAdminController extends Controller
     public function index()
     {
         //
-
-       
-        return view ('perfilAdmin');
+        //
+        $usuario = '1'; //test en lo que se averigua como sacar el usuario de session storage
+        //->paginate(20); //resolver lo de la paginacion
+        $vehiculos = DB::select('CALL `fungdb`.`mostrar_vehiculo_usuario`('.$usuario.');');
+        return view('perfilClienteVehiculo', [ "vehiculos" => $vehiculos ]);
     }
 
     /**
@@ -28,7 +32,6 @@ class perfilAdminController extends Controller
     public function create()
     {
         //
-        return view ("perfilAdmin.blade.php");
     }
 
     /**
@@ -40,35 +43,26 @@ class perfilAdminController extends Controller
     public function store(Request $request)
     {
         //
-        //$perfilAdmin = new perfilAdmin($request->input());
-    //$perfilAdmin->saveOrFail();
-    //return redirect()->route("perfilesAdmin.perfilAdmin")->with(["mensaje" => "vehiculo guardado",   ]);
-    perfilAdmin::create($request->all());
-        return view ("perfilAdmin");
-        
-   
- 
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\perfilAdmin  $perfilAdmin
+     * @param  \App\Models\perfilclienteVehiculo  $perfilclienteVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function show(perfilAdmin $perfilAdmin)
+    public function show(perfilclienteVehiculo $perfilclienteVehiculo)
     {
         //
-       
-    }   
+    }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\perfilAdmin  $perfilAdmin
+     * @param  \App\Models\perfilclienteVehiculo  $perfilclienteVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function edit(perfilAdmin $perfilAdmin)
+    public function edit(perfilclienteVehiculo $perfilclienteVehiculo)
     {
         //
     }
@@ -77,10 +71,10 @@ class perfilAdminController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\perfilAdmin  $perfilAdmin
+     * @param  \App\Models\perfilclienteVehiculo  $perfilclienteVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, perfilAdmin $perfilAdmin)
+    public function update(Request $request, perfilclienteVehiculo $perfilclienteVehiculo)
     {
         //
     }
@@ -88,10 +82,10 @@ class perfilAdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\perfilAdmin  $perfilAdmin
+     * @param  \App\Models\perfilclienteVehiculo  $perfilclienteVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(perfilAdmin $perfilAdmin)
+    public function destroy(perfilclienteVehiculo $perfilclienteVehiculo)
     {
         //
     }

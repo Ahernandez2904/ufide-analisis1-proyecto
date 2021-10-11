@@ -58,45 +58,101 @@
 			  </button>
 			  <div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav text-uppercase ml-auto">
-				  <li class="nav-item">
-					  <a class="nav-link js-scroll-trigger" href="indexCliente.html">Home</a>
+					<li class="nav-item">
+						  <a class="nav-link js-scroll-trigger" href="indexCliente.html">Inicio</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link js-scroll-trigger" href="citasCliente.html">Citas</a>
+						  <a class="nav-link js-scroll-trigger" href="citasAdmin.html">Citas</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link js-scroll-trigger" href="serviciosCliente.html">Servicios</a>
+						  <a class="nav-link js-scroll-trigger" href="inventarioAdmin.html">Inventario</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link js-scroll-trigger" href="feedbackCliente.html">Feedback</a>
+						  <a class="nav-link js-scroll-trigger" href="serviciosAdmin.html">Servicios</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link js-scroll-trigger" href="perfilCliente.html">Perfil</a>
+						  <a class="nav-link js-scroll-trigger" href="feedbackAdmin.html">Feedback</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link js-scroll-trigger" href="index.html">Cerrar Sesión</a>
+						  <a class="nav-link js-scroll-trigger" href="clientesAdmin.html">Clientes</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="perfilAdmin.html">Perfil</a>
+					  </li>
+					<li class="nav-item">
+						  <a class="nav-link js-scroll-trigger" href="index.html">Cerrar Sesión</a>
 					</li>
 				</ul>
 			  </div>
 			</div>
-		</nav>
+		  </nav>
 		
 		<section id="home" class="main-banner small-main-banner parallaxie" style="background: url('../../public/uploads/mecanica.jpg')">
 			<div class="heading small-heading">
 				<h1></h1>
 				<h3 class="cd-headline clip is-full-width">
-					<span>Bienvenido: "Cliente"</span>
+					<span>Bienvenido: "Admin"</span>
 				</h3>
 			</div>
 		</section>
+				
+		
+			
 
-		<!--Contenido-->
-		<div id="modalVehiculo" class="modal modal-top fade">
+		<div class="section-title text-center">
+			<br><h3>Vehiculos</h3>
+			
+			<a href="perfilAdmin"> <button class="sim-btn hvr-bounce-to-top">Volver al perfil</button> </a>
+
+
+			
+		</div>
+
+		<table id="" class="table table-bordered" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<th>Año</th>
+					<th>Cilindrada</th>
+					<th>Marca</th>
+					<th>Modelo</th>
+					<th>Placa</th>
+					<th>Editar/Eliminar</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				@forelse($vehiculos as $vehiculo)
+					<td>{{$vehiculo->anio}}</td>
+					<td>{{$vehiculo->cilindraje_motor}}</td>
+					<td>{{$vehiculo->marca}}</td>
+					<td>{{$vehiculo->modelo}}</td>
+					<td>{{$vehiculo->placa}}</td>
+					
+					<td>
+						
+					<button data-toggle="modal" data-target="#modalEditarVehiculo" class="button--save datatable-button fa-edit"></button>
+						<form method="POST" action="{{ url('/vehiculos/'.$vehiculo->id) }}">
+							@csrf 
+							{{ @method_field('DELETE') }}
+							<button class="button--delete datatable-button fa-trash"></button>
+							</form>
+					</td>
+				</tr>
+			@empty
+				No hay datos que mostrar.
+			@endforelse
+		</tbody>
+	</table>
+
+	
+	<div id="modalEditarVehiculo" class="modal modal-top fade">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
-					<form method="POST" action="{{ route('perfilCliente.store')}}" id="add-event">
+				<form id="add-event" method="POST" action="{{ url('/vehiculos/'.$vehiculo->id) }}">
 						@csrf
-						<div class="modal-body">
+						{{ @method_field('PATCH') }}
+					<div class="modal-body">
 							<div class="form-group">
 								<label>Año</label>
 								<input required autocomplete="off" name="anio" class="form-control"
@@ -118,78 +174,10 @@
 								<label>Placa</label>
 								<input type="text" required autocomplete="off" name="placa" class="form-control">
 							</div>
-							<div class="form-group">
-								<label>Usuario</label>
-								<input type="int" required autocomplete="off" name="usuario" class="form-control">
-							</div>
 						</div>
 						<div class="modal-footer">
 						<button class="btn btn-success">Guardar</button>
 							<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-
-		<div class="section-title text-center">
-			<br><h3>Perfil</h3>
-			<button data-toggle="modal" data-target="#modalVehiculo" class="sim-btn hvr-bounce-to-top">Crear vehículo</button>
-		<a href="perfilClienteVehiculo">	<button   class="sim-btn hvr-bounce-to-top">Ver vehículos</button> </a>
-		</div>
-
-		<table id="" class="table table-striped table-bordered" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th>Código del Cliente</th>
-					<th>Nombre del Cliente</th>
-					<th>Correo</th>
-					<th>Teléfono</th>
-					<th>Editar/Eliminar</th>
-					<th>Vehículos</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>001</td>
-					<td>Alejandro</td>
-					<td>gregrg@gmail.com</td>
-					<td>2484154</td>
-					<td>
-						<button data-toggle="modal" data-target="#modalUsuario" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
-					</td>
-					<td><button class="datatable-button fa-car" data-toggle="modal" data-target="#modalVehiculo"></button></td>
-				</tr>
-			</tbody>
-		</table>
-
-		<div id="modalUsuario" class="modal modal-top fade">
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content">
-					<form id="add-event">
-						<div class="modal-body">
-							<div class="form-group">
-								<label>Nombre</label>
-								<input type="text" class="form-control" name="">
-							</div>
-							<div class="form-group">
-								<label>Apellidos</label>
-								<input type="text" class="form-control" name="">
-							</div>
-							<div class="form-group">
-								<label>Correo</label>
-								<input type="text" class="form-control" name="">
-							</div>
-							<div class="form-group">
-								<label>Contraseña</label>
-								<input type="text" class="form-control" name="">
-							</div>
-						</div>
-						<div class="modal-footer">
-							<button type="submit" class="btn btn-primary">Guardar</button>
-							<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-						</div>
 						</div>
 					</form>
 				</div>
@@ -251,4 +239,5 @@
 		<script src='https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js'></script>
 		<script src='https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js'></script>
 	</body>
+	
 </html>
