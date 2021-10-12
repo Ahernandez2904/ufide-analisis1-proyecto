@@ -17,11 +17,11 @@ class perfilclienteVehiculoController extends Controller
     public function index()
     {
         //
-        //
-        $usuario = '1'; //test en lo que se averigua como sacar el usuario de session storage
-        //->paginate(20); //resolver lo de la paginacion
-        $vehiculos = DB::select('CALL `fungdb`.`mostrar_vehiculo_usuario`('.$usuario.');');
-        return view('perfilClienteVehiculo', [ "vehiculos" => $vehiculos ]);
+       
+         $usuario = '2'; //test en lo que se averigua como sacar el usuario de session storage
+         //->paginate(20); //resolver lo de la paginacion
+         $vehiculos = DB::select('CALL `fungdb`.`mostrar_vehiculo_usuario`('.$usuario.');');
+         return view('perfilClienteVehiculo', [ "vehiculos" => $vehiculos ]);
     }
 
     /**
@@ -77,6 +77,9 @@ class perfilclienteVehiculoController extends Controller
     public function update(Request $request, perfilclienteVehiculo $perfilclienteVehiculo)
     {
         //
+        DB::select('CALL `fungdb`.`modificar_vehiculo_n`('.$request->input('Id').',"'.$request->input('anio').'","'.$request->input('cilindraje_motor').'","'.$request->input('marca').'","'.$request->input('modelo').'","'.$request->input('placa').'");');
+        return redirect()->route('perfilAdminVehiculo');
+        //return response()->json($request);
     }
 
     /**

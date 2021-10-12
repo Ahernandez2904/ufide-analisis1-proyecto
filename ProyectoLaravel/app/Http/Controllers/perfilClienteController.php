@@ -41,7 +41,7 @@ class perfilClienteController extends Controller
         //
 
         perfilCliente::create($request->all());
-        return view ("perfilClienteVehiculo");
+        return view ("perfilCliente");
     }
 
     /**

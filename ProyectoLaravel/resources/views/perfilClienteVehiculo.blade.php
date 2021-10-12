@@ -62,22 +62,22 @@
 						  <a class="nav-link js-scroll-trigger" href="indexCliente.html">Inicio</a>
 					</li>
 					<li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="citasAdmin.html">Citas</a>
+						  <a class="nav-link js-scroll-trigger" href="citasCliente.html">Citas</a>
 					</li>
 					<li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="inventarioAdmin.html">Inventario</a>
+						  <a class="nav-link js-scroll-trigger" href="inventarioCliente.html">Inventario</a>
 					</li>
 					<li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="serviciosAdmin.html">Servicios</a>
+						  <a class="nav-link js-scroll-trigger" href="serviciosCliente.html">Servicios</a>
 					</li>
 					<li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="feedbackAdmin.html">Feedback</a>
+						  <a class="nav-link js-scroll-trigger" href="feedbackCliente.html">Feedback</a>
 					</li>
 					<li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="clientesAdmin.html">Clientes</a>
+						  <a class="nav-link js-scroll-trigger" href="clientesCliente.html">Clientes</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="perfilAdmin.html">Perfil</a>
+						<a class="nav-link js-scroll-trigger" href="perfilCliente.html">Perfil</a>
 					  </li>
 					<li class="nav-item">
 						  <a class="nav-link js-scroll-trigger" href="index.html">Cerrar Sesión</a>
@@ -96,12 +96,55 @@
 			</div>
 		</section>
 				
-		<!--Contenido-->
-		<div id="modalVehiculo" class="modal modal-top fade">
+		<div class="section-title text-center">
+			<br><h3>Vehiculos</h3>
+			
+			<a href="perfilCliente"> <button class="sim-btn hvr-bounce-to-top">Volver al perfil</button> </a>
+
+
+			
+		</div>
+
+		<table id="" class="table table-bordered" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<th>Año</th>
+					<th>Cilindrada</th>
+					<th>Marca</th>
+					<th>Modelo</th>
+					<th>Placa</th>
+					<th>Editar/Eliminar</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				@forelse($vehiculos as $vehiculo)
+					<td>{{$vehiculo->anio}}</td>
+					<td>{{$vehiculo->cilindraje_motor}}</td>
+					<td>{{$vehiculo->marca}}</td>
+					<td>{{$vehiculo->modelo}}</td>
+					<td>{{$vehiculo->placa}}</td>
+					
+					<td>
+						
+					<button data-toggle="modal" data-target="#modalEditarVehiculo" class="button--save datatable-button fa-edit"></button>
+					
+					</td>
+				</tr>
+			@empty
+				No hay datos que mostrar.
+			@endforelse
+		</tbody>
+	</table>
+
+	
+	<div id="modalEditarVehiculo" class="modal modal-top fade">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
-					<form method="POST" action="{{ route('perfilAdmin.store')}}" id="add-event">
+				<form id="add-event" method="POST" action="{{ url('/perfilClienteVehiculo/'.$vehiculo->id) }}">
 						@csrf
+						{{ @method_field('PATCH') }}
 					<div class="modal-body">
 							<div class="form-group">
 								<label>Año</label>
@@ -133,51 +176,6 @@
 				</div>
 			</div>
 		</div>
-
-			
-
-		<div class="section-title text-center">
-			<br><h3>Vehiculos</h3>
-			
-		<a href="perfilCliente">	<button class="sim-btn hvr-bounce-to-top">Volver al perfil</button> </a>
-		</div>
-
-		<table id="" class="table table-bordered" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th>Año</th>
-					<th>Cilindrada</th>
-					<th>Marca</th>
-					<th>Modelo</th>
-					<th>Placa</th>
-					<th>Editar/Eliminar</th>
-					
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-				@forelse($vehiculos as $vehiculo)
-					<td>{{$vehiculo->anio}}</td>
-					<td>{{$vehiculo->cilindraje_motor}}</td>
-					<td>{{$vehiculo->marca}}</td>
-					<td>{{$vehiculo->modelo}}</td>
-					<td>{{$vehiculo->placa}}</td>
-					
-					<td>
-						
-					<button data-toggle="modal" data-target="#modalEditarVehiculo" class="button--save datatable-button fa-edit"></button>
-						<form method="POST" action="{{ url('/vehiculos/'.$vehiculo->id) }}">
-							@csrf 
-							{{ @method_field('DELETE') }}
-							<button class="button--delete datatable-button fa-trash"></button>
-							</form>
-					</td>
-				</tr>
-			@empty
-				No hay datos que mostrar.
-			@endforelse
-		</tbody>
-	</table>
 
 	
 

@@ -132,11 +132,7 @@
 					<td>
 						
 					<button data-toggle="modal" data-target="#modalEditarVehiculo" class="button--save datatable-button fa-edit"></button>
-						<form method="POST" action="{{ url('/vehiculos/'.$vehiculo->id) }}">
-							@csrf 
-							{{ @method_field('DELETE') }}
-							<button class="button--delete datatable-button fa-trash"></button>
-							</form>
+					
 					</td>
 				</tr>
 			@empty
@@ -149,7 +145,7 @@
 	<div id="modalEditarVehiculo" class="modal modal-top fade">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
-				<form id="add-event" method="POST" action="{{ url('/vehiculos/'.$vehiculo->id) }}">
+				<form id="add-event" method="POST" action="{{ url('/perfilAdminVehiculo/'.$vehiculo->id) }}">
 						@csrf
 						{{ @method_field('PATCH') }}
 					<div class="modal-body">

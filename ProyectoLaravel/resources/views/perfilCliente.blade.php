@@ -96,7 +96,7 @@
 				<div class="modal-content">
 					<form method="POST" action="{{ route('perfilCliente.store')}}" id="add-event">
 						@csrf
-						<div class="modal-body">
+					<div class="modal-body">
 							<div class="form-group">
 								<label>Año</label>
 								<input required autocomplete="off" name="anio" class="form-control"
@@ -132,6 +132,8 @@
 			</div>
 		</div>
 
+			
+
 		<div class="section-title text-center">
 			<br><h3>Perfil</h3>
 			<button data-toggle="modal" data-target="#modalVehiculo" class="sim-btn hvr-bounce-to-top">Crear vehículo</button>
@@ -146,7 +148,7 @@
 					<th>Correo</th>
 					<th>Teléfono</th>
 					<th>Editar/Eliminar</th>
-					<th>Vehículos</th>
+					
 				</tr>
 			</thead>
 			<tbody>
@@ -159,7 +161,8 @@
 						<button data-toggle="modal" data-target="#modalUsuario" class="button--save datatable-button fa-edit"></button>
 						<button class="button--delete datatable-button fa-trash"></button>
 					</td>
-					<td><button class="datatable-button fa-car" data-toggle="modal" data-target="#modalVehiculo"></button></td>
+				
+						
 				</tr>
 			</tbody>
 		</table>
@@ -195,6 +198,7 @@
 				</div>
 			</div>
 		</div>
+
 
 
 		<!--Fin contenido-->

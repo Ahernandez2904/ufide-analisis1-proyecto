@@ -76,13 +76,7 @@ class perfilAdminVehiculoController extends Controller
     public function update(Request $request, perfilAdminVehiculo $perfilAdminVehiculo)
     {
         //
-        DB::select('CALL `fungdb`.`modificar_vehiculo_n`('.
-        $request->input('Id').',"'.
-        $request->input('anio').',"'.
-        $request->input('cilindraje_motor').','.
-        $request->input('marca').','.
-        $request->input('modelo').','.
-        $request->input('placa').');');
+        DB::select('CALL `fungdb`.`modificar_vehiculo_n`('.$request->input('Id').',"'.$request->input('anio').'","'.$request->input('cilindraje_motor').'","'.$request->input('marca').'","'.$request->input('modelo').'","'.$request->input('placa').'");');
         return redirect()->route('perfilAdminVehiculo');
         //return response()->json($request);
     }
@@ -96,5 +90,6 @@ class perfilAdminVehiculoController extends Controller
     public function destroy(perfilAdminVehiculo $perfilAdminVehiculo)
     {
         //
+        return view (perfilAdminVehiculo);
     }
 }

@@ -91,7 +91,7 @@
 			<div class="heading small-heading">
 				<h1></h1>
 				<h3 class="cd-headline clip is-full-width">
-					<span>Bienvenido: "cliente"</span>
+					<span>Bienvenido: "Admin"</span>
 				</h3>
 			</div>
 		</section>
