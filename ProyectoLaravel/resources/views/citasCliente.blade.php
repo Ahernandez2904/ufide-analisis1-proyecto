@@ -69,8 +69,8 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				@forelse($citas as $cita)
+			@forelse($citas as $cita)
+				<tr>
 					<td>{{$cita->id}}</td>
 					<td>{{date('Y-m-d', strtotime($cita->fecha))}}</td>
 					<td>{{date('H:i:s', strtotime($cita->fecha))}}</td>
@@ -85,10 +85,10 @@
 							<button class="button--delete datatable-button fa-trash"></button>
 						</form>
 					</td>
-				@empty
-					No hay datos que mostrar.
-				@endforelse
-			</tr>
+				</tr>
+			@empty
+				No hay datos que mostrar.
+			@endforelse
 		</tbody>
 	</table>
 
@@ -101,7 +101,7 @@
 					<div class="modal-body">
 						<div class="form-group">
 							<label>Identificador de la cita</label>
-							<input type="text" class="form-control" name="Id" id="Id" value="{{$cita->id}}" disabled>
+							<input type="text" class="form-control" name="Id" id="Id" value="{{$cita->id}}">
 						</div>
 						<div class="form-group">
 							<label>Fecha</label>
@@ -113,7 +113,7 @@
 						</div>
 						<div class="form-group">
 							<label>Usuario</label>
-							<input type="text" class="form-control" name="Usuario" id="Usuario" value="2" disabled>
+							<input type="text" class="form-control" name="Usuario" id="Usuario" value="2">
 						</div>
 						<div class="form-group">
 							<label>Vehiculo</label>
