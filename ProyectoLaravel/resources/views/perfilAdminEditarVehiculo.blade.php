@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 	<head>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -133,21 +132,55 @@
 					<td>{{$vehiculo->placa}}</td>
 					
 					<td>
-					
-
-					<a href="{{ route('perfilAdminVehiculo.edit',$vehiculo->id)}}" ><button  class="button--save datatable-button fa-edit"></button> </a>
-					
+						
+					<button data-toggle="modal" data-target="#modalEditarVehiculo" class="button--save datatable-button fa-edit"></button>
 					
 					</td>
 				</tr>
 			@empty
 				No hay datos que mostrar.
 			@endforelse
-			
 		</tbody>
 	</table>
 
 	
+	<div id="modalEditarVehiculo" class="modal modal-top fade">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+				<form id="add-event" method="POST" action="{{ url('/perfilAdminVehiculo/'.$vehiculo->id) }}">
+						@csrf
+						{{ @method_field('PATCH') }}
+					<div class="modal-body">
+							<div class="form-group">
+								<label>Año</label>
+								<input required autocomplete="off" name="anio" class="form-control"
+                           type="number" >
+							</div>
+							<div class="form-group">
+								<label>Cilindrada</label>
+								<input type="text" required autocomplete="off" name="cilindraje_motor" class="form-control">
+							</div>
+							<div class="form-group">
+								<label>Marca</label>
+								<input type="text" required autocomplete="off" name="marca" class="form-control">
+							</div>
+							<div class="form-group">
+								<label>Modelo</label>
+								<input type="text" required autocomplete="off" name="modelo" class="form-control">
+							</div>
+							<div class="form-group">
+								<label>Placa</label>
+								<input type="text" required autocomplete="off" name="placa" class="form-control">
+							</div>
+						</div>
+						<div class="modal-footer">
+						<button class="btn btn-success">Guardar</button>
+							<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 
 
 		<!--Fin contenido-->
