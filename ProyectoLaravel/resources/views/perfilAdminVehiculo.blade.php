@@ -112,7 +112,7 @@
 		<table id="" class="table table-bordered" cellspacing="0" width="100%">
 			<thead>
 				<tr>
-					
+					<th>ID</th>
 					<th>Año</th>
 					<th>Cilindrada</th>
 					<th>Marca</th>
@@ -125,7 +125,7 @@
 			<tbody>
 				<tr>
 				@forelse($vehiculos as $vehiculo)
-					
+					<td>{{$vehiculo->id}}</td>
 					<td>{{$vehiculo->anio}}</td>
 					<td>{{$vehiculo->cilindraje_motor}}</td>
 					<td>{{$vehiculo->marca}}</td>
@@ -135,8 +135,8 @@
 					<td>
 					
 
-					<a href="{{ route('perfilAdminVehiculo.edit',$vehiculo->id)}}" ><button  class="button--save datatable-button fa-edit"></button> </a>
-					
+				
+					<button data-toggle="modal" data-target="#modalEditarVehiculo" class="button--save datatable-button fa-edit"></button>
 					
 					</td>
 				</tr>
@@ -148,6 +148,63 @@
 	</table>
 
 	
+
+	<div id="modalEditarVehiculo" class="modal modal-top fade">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<form id="add-event" method="POST" action="{{ url('/perfilAdminVehiculo/'.$vehiculo->id) }}">
+					@csrf
+					{{ @method_field('PATCH') }}
+					<div class="modal-body">
+						<div class="form-group">
+							<label>ID</label>
+							<input type="text" class="form-control" name="id" id="id">
+						</div>
+						<div class="form-group">
+							<label>Ano</label>
+							<input type="text" class="form-control" name="anio" id="anio">
+						</div>
+						<div class="form-group">
+							<label>Cilindrada</label>
+							<input type="text" class="form-control" name="cilindraje_motor" id="cilindraje_motor">
+						</div>
+						<div class="form-group">
+							<label>Marca</label>
+							<input type="text" class="form-control" name="marca" id="marca">
+						</div>
+						<div class="form-group">
+							<label>Modelo</label>
+							<input type="text" class="form-control" name="modelo" id="modelo">
+						</div>
+						<div class="form-group">
+							<label>Placa</label>
+							<input type="text" class="form-control" name="placa" id="placa">
+						</div>
+
+
+
+						<div class="form-group">
+							<label>Vehiculo</label>
+							<select class="form-control" id="Vehiculo" name="Vehiculo">
+								@forelse($vehiculos as $vehiculo)
+									<option value="{{$vehiculo->id}}">{{$vehiculo->placa}}</option>
+								@empty
+									No hay carros disponibles.
+								@endforelse
+							</select>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary" >Guardar</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>        
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
 
 
 		<!--Fin contenido-->

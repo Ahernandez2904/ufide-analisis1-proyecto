@@ -63,15 +63,7 @@ class perfilAdminVehiculoController extends Controller
      */
     public function edit(perfilAdminVehiculo $perfilAdminVehiculo)
     {
-        //
-        //return redirect()->route('perfilAdminEditarVehiculo.edit', [ "vehiculos" -> $vehiculos ]);
-     // return view('perfilAdminEditarVehiculo.edit',compact('vehiculos'));
-     $usuario = '2'; //test en lo que se averigua como sacar el usuario de session storage
-        //->paginate(20); //resolver lo de la paginacion
-        $vehiculos = DB::select('CALL `fungdb`.`mostrar_vehiculo_usuario`('.$usuario.');');
-        return view('perfilAdminVehiculo', [ "vehiculos" => $vehiculos ]);
-        
-        //return view('perfilAdminEditarVehiculo',compact($perfilAdmin));
+     
       
     }
 
