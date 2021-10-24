@@ -137,7 +137,17 @@
 
 				
 					<button data-toggle="modal" data-target="#modalEditarVehiculo" class="button--save datatable-button fa-edit"></button>
-					
+					<form method="POST" action="{{ url('/perfilAdminVehiculo/'.$vehiculo->id) }}">
+							@csrf 
+							{{ @method_field('DELETE') }}
+							<button onclick="return confirm('¿Esta seguro que desea eliminar este vehiculo?')" class="button--delete datatable-button fa-trash"></button>
+							
+						
+
+							
+
+
+						</form>
 					</td>
 				</tr>
 			@empty
@@ -156,12 +166,22 @@
 					@csrf
 					{{ @method_field('PATCH') }}
 					<div class="modal-body">
-						<div class="form-group">
-							<label>ID</label>
-							<input type="text" class="form-control" name="id" id="id">
+						
+					<div class="form-group">
+							<label>IDVehiculo</label>
+							<select class="form-control"  id="id" name="id">
+								@forelse($vehiculos as $vehiculo)
+									<option value="{{$vehiculo->id}}">{{$vehiculo->id}}</option>
+								@empty
+									No hay carros disponibles.
+								@endforelse
+							</select>
 						</div>
+
+					
+
 						<div class="form-group">
-							<label>Ano</label>
+							<label>Año</label>
 							<input type="text" class="form-control" name="anio" id="anio">
 						</div>
 						<div class="form-group">
@@ -183,17 +203,8 @@
 
 
 
-						<div class="form-group">
-							<label>Vehiculo</label>
-							<select class="form-control" id="Vehiculo" name="Vehiculo">
-								@forelse($vehiculos as $vehiculo)
-									<option value="{{$vehiculo->id}}">{{$vehiculo->placa}}</option>
-								@empty
-									No hay carros disponibles.
-								@endforelse
-							</select>
-						</div>
-					</div>
+					
+					
 					<div class="modal-footer">
 						<button type="submit" class="btn btn-primary" >Guardar</button>
 						<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>        

@@ -74,13 +74,25 @@ class perfilAdminVehiculoController extends Controller
      * @param  \App\Models\perfilAdminVehiculo  $perfilAdminVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, perfilAdminVehiculo $perfilAdminVehiculo)
+    public function update(Request $request, $id)
     {
         //
-        DB::select('CALL `fungdb`.`modificar_vehiculo_n`('.$request->input('Id').',"'.$request->input('anio').'","'.$request->input('cilindraje_motor').'","'.$request->input('marca').'","'.$request->input('modelo').'","'.$request->input('placa').'");');
-        return redirect()->route('perfilAdminVehiculo');
+        try { DB::select('CALL `fungdb`.`modificar_vehiculo_n`('.
+        $request->input('id').',
+        "'.$request->input('anio').'",
+        "'.$request->input('cilindraje_motor').'",
+        "'.$request->input('marca').'",
+        "'.$request->input('modelo').'",
+        "'.$request->input('placa').'");');
+    } catch (ModelNotFoundException $exception) {
+        return back()->withError($exception->getMessage())->withInput();
+    }
+        return redirect()->route('perfilAdminVehiculo.index');
+        
         //return response()->json($request);
     }
+
+   
 
     /**
      * Remove the specified resource from storage.
@@ -88,9 +100,9 @@ class perfilAdminVehiculoController extends Controller
      * @param  \App\Models\perfilAdminVehiculo  $perfilAdminVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(perfilAdminVehiculo $perfilAdminVehiculo)
+    public function destroy($id)
     {
-        //
-        return view (perfilAdminVehiculo);
+        DB::select('call `fungdb`.`ELIMINAR_VEHICULO`('.$id.');');
+        return redirect()->route('perfilAdminVehiculo.index');
     }
 }
