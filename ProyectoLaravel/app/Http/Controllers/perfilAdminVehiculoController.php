@@ -77,16 +77,14 @@ class perfilAdminVehiculoController extends Controller
     public function update(Request $request, $id)
     {
         //
-        try { DB::select('CALL `fungdb`.`modificar_vehiculo_n`('.
+        DB::select('CALL `fungdb`.`modificar_vehiculo_n`('.
         $request->input('id').',
         "'.$request->input('anio').'",
         "'.$request->input('cilindraje_motor').'",
         "'.$request->input('marca').'",
         "'.$request->input('modelo').'",
         "'.$request->input('placa').'");');
-    } catch (ModelNotFoundException $exception) {
-        return back()->withError($exception->getMessage())->withInput();
-    }
+    
         return redirect()->route('perfilAdminVehiculo.index');
         
         //return response()->json($request);
@@ -102,7 +100,25 @@ class perfilAdminVehiculoController extends Controller
      */
     public function destroy($id)
     {
+        try { 
         DB::select('call `fungdb`.`ELIMINAR_VEHICULO`('.$id.');');
-        return redirect()->route('perfilAdminVehiculo.index');
+    } catch (ModelNotFoundException $exception) {
+        return back()->withError($exception->getMessage())->withInput();
     }
+        return redirect()->route('perfilAdminVehiculo.index');
+        
+        //return response()->json($request);
+    } 
+
+
+
+
+
+
+
 }
+
+
+
+
+

@@ -108,7 +108,7 @@
 
 			
 		</div>
-
+	
 		<table id="" class="table table-bordered" cellspacing="0" width="100%">
 			<thead>
 				<tr>
@@ -137,13 +137,16 @@
 
 				
 					<button data-toggle="modal" data-target="#modalEditarVehiculo" class="button--save datatable-button fa-edit"></button>
+				
+					@if (session('error'))
+						<div class="alert alert-danger">{{ session('error') }}</div>
+									@endif
 					<form method="POST" action="{{ url('/perfilAdminVehiculo/'.$vehiculo->id) }}">
 							@csrf 
 							{{ @method_field('DELETE') }}
 							<button onclick="return confirm('¿Esta seguro que desea eliminar este vehiculo?')" class="button--delete datatable-button fa-trash"></button>
 							
 						
-
 							
 
 
