@@ -38,5 +38,13 @@ class clientesAdminController extends Controller{
         return view('clientesAdmin', [ "clientesAdmin" => $clientes ]);
     }
     
-
+    public function update(Request $request, $id)
+    {
+        DB::select('CALL `fungdb`.`modificar_usuario`("'.
+        $request->input('Id').'","'.
+        $request->input('Nombre').'","'.
+        $request->input('Apellidos').'","'.
+        $request->input('Correo').'");');
+        return redirect()->route('clientesAdmin.index');
+    }
 }

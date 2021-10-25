@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Models\perfilCliente;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class perfilClienteController extends Controller
     public function index()
     {
         //
-        return view ('perfilCliente');
+        $clientes = DB::select('CALL `fungdb`.`mostrar_clientes`();');
+        return view('perfilCliente', [ "clientes" => $clientes ]);
     }
 
     /**
@@ -73,9 +75,14 @@ class perfilClienteController extends Controller
      * @param  \App\Models\perfilCliente  $perfilCliente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, perfilCliente $perfilCliente)
+    public function update(Request $request, $id)
     {
-        //
+        DB::select('CALL `fungdb`.`modificar_usuario`("'.
+        $request->input('Id').'","'.
+        $request->input('Nombre').'","'.
+        $request->input('Apellidos').'","'.
+        $request->input('Correo').'");');
+        return redirect()->route('perfilCliente.index');
     }
 
     /**

@@ -13,6 +13,7 @@ Route::resource('perfilAdminVehiculo', 'perfilAdminVehiculoController');
 Route::resource('perfilAdminEditarVehiculo', 'perfilAdminVehiculoController');
 Route::resource('perfilClienteVehiculo', 'perfilClienteVehiculoController');
 Route::resource('clientesAdmin', 'clientesAdminController');
+Route::resource('crearProveedorAdmin', 'crearProveedorAdminController');
 
 
 

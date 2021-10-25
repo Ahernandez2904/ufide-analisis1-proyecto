@@ -16,6 +16,7 @@
 				<th>Nombre del Cliente</th>
 				<th>Apellidos</th>
 				<th>Correo</th>
+				<th>Correo</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -25,12 +26,49 @@
 					<td>{{$clienteAdminItem->nombre}}</td>
 					<td>{{$clienteAdminItem->apellidos}}</td>
 					<td>{{$clienteAdminItem->correo}}</td>	
+					<td>
+						<button data-toggle="modal" data-target="#modalEditarCliente" 
+						class="button--save datatable-button fa-edit"></button>
+					</td>
 				</tr>
 			@empty
 					No hay datos que mostrar.			
 			@endforelse
 		</tbody>
 	</table>
+
+	<div id="modalEditarCliente" class="modal modal-top fade">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<form id="add-event" method="POST" action="{{ url('/clientesAdmin/'.$clienteAdminItem->id) }}">
+					@csrf
+					{{ @method_field('PATCH') }}
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Identificador</label>
+							<input type="text" class="form-control" name="Id">
+						</div>
+						<div class="form-group">
+							<label>Nombre</label>
+							<input type="text" class="form-control" name="Nombre">
+						</div>
+						<div class="form-group">
+							<label>Apellidos</label>
+							<input type="text" class="form-control" name="Apellidos">
+						</div>
+						<div class="form-group">
+							<label>Correo</label>
+							<input type="text" class="form-control" name="Correo">
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">Guardar</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+					</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 @endsection
 
 
