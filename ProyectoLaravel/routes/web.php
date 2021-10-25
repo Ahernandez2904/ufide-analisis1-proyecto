@@ -10,7 +10,6 @@ Route::resource('Citas', 'citas_cliente_controller');
 Route::resource('perfilAdmin', 'perfilAdminController');
 Route::resource('perfilCliente', 'perfilClienteController');
 Route::resource('perfilAdminVehiculo', 'perfilAdminVehiculoController');
-Route::resource('perfilAdminEditarVehiculo', 'perfilAdminVehiculoController');
 Route::resource('perfilClienteVehiculo', 'perfilClienteVehiculoController');
 Route::resource('clientesAdmin', 'clientesAdminController');
 Route::resource('crearProveedorAdmin', 'crearProveedorAdminController');
