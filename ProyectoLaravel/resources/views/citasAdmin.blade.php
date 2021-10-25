@@ -71,8 +71,7 @@
 				<th>Hora</th>
 				<th>Usuario</th>
 				<th>Marca Automóvil</th>
-				<th>Modelo</th>
-				<th>Año</th>
+				<th>Más información</th>
 				<th>Editar/Eliminar</th>
 			</tr>
 		</thead>
@@ -84,8 +83,10 @@
 					<td>{{date('H:i:s', strtotime($cita->fecha))}}</td>
 					<td>{{$cita->usuario}}</td>
 					<td>{{$cita->marca}}</td>
-					<td>{{$cita->modelo}}</td>
-					<td>{{$cita->anio}}</td>
+					<td>
+						<button data-toggle="modal" data-target="#modalinfo" 
+						class="button--save datatable-button fa-info"></button>
+					</td>
 					<td>
 						<button data-toggle="modal" data-target="#modalEditarCita" 
 						class="button--save datatable-button fa-edit"></button>
@@ -149,6 +150,30 @@
 						<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>        
 					</div>
 				</form>
+			</div>
+		</div>
+	</div>
+	
+	<div id="modalInfo" class="modal modal-top fade">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="form-group">
+						<label>Correo de contacto: {{$cita->correo}}</label>
+					</div>
+					<div class="form-group">
+						<label>Cilindraje de motor: {{$cita->cilindraje}}</label>
+					</div>
+					<div class="form-group">
+						<label>Placa: {{$cita->placa}}</label>
+					</div>
+					<div class="form-group">
+						<label>Modelo: {{$cita->modelo}}</label>
+					</div>
+					<div class="form-group">
+						<label>Año del vehículo: {{$cita->anio}}</label>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
