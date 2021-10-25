@@ -1,134 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+@extends('layoutAdmin')
 
-		<!-- Basic -->
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-		<!-- Mobile Metas -->
-		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	
-		<!-- Site Metas -->
-		<title>Proveedores - FUNG Servicio Automotriz</title>
-		<meta name="keywords" content="">
-		<meta name="description" content="">
-		<meta name="author" content="">
+@section('titulo','Proveedores')
 
-		<!-- Site Icons -->
-		<link rel="shortcut icon" href="images/LofoFungU.ico" type="../../public/image/x-icon" />
-		<link rel="apple-touch-icon" href="../../public/images/apple-touch-icon.png">
-
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="../css/bootstrap.min.css">
-		<!-- Site CSS -->
-		<link rel="stylesheet" href="../css/style.css">
-		<!-- Responsive CSS -->
-		<link rel="stylesheet" href="../css/responsive.css">
-		<!-- Custom CSS -->
-		<link rel="stylesheet" href="../css/custom.css">
-		<script src="../js/modernizr.js"></script> <!-- Modernizr -->
-		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-
-		<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-	</head>
-	<body id="page-top" class="politics_version">
-
-		<!-- LOADER -->
-		<div id="preloader">
-			<div id="main-ld">
-				<div id="loader"></div>  
-			</div>
-		</div><!-- end loader -->
-		<!-- END LOADER -->
-		
-		<!-- Navigation -->
-		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-			<div class="container">
-			  <a class="navbar-brand js-scroll-trigger" href="#page-top">
-				  <img class="img-fluid" src="../../public/images/LogoFung.png" alt="" />
-			  </a>
-			  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				<i class="fa fa-bars"></i>
-			  </button>
-			  <div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav text-uppercase ml-auto">
-					  <li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="indexCliente.blade.php">Inicio</a>
-					</li>
-					<li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="citasAdmin.blade.php">Citas</a>
-					</li>
-					<li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="inventarioAdmin.blade.php">Inventario</a>
-					</li>
-					<li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="serviciosAdmin.blade.php">Servicios</a>
-					</li>
-					<li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="feedbackAdmin.blade.php">Feedback</a>
-					</li>
-					<li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="clientesAdmin.blade.php">Clientes</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="perfilAdmin.blade.php">Perfil</a>
-					  </li>
-					<li class="nav-item">
-						  <a class="nav-link js-scroll-trigger" href="index.blade.php">Cerrar Sesión</a>
-					</li>
-				</ul>
-			  </div>
-			</div>
-		  </nav>
-		
-		<section id="home" class="main-banner small-main-banner parallaxie" style="background: url('../../public/uploads/mecanica.jpg')">
-			<div class="heading small-heading">
-				<h1></h1>
-				<h3 class="cd-headline clip is-full-width">
-					<span>Bienvenido: "Admin"</span>
-				</h3>
-			</div>
-		</section>
+@section('contenido')
 
 		<!--Contenido-->
 		<div id="modalProveedor" class="modal modal-top fade">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
-					<form id="add-event">
+					<form id="add-event" method="POST" action="{{ url('/crearProveedorAdmin') }}"">
+						@csrf
 						<div class="modal-body">
-							<h4>Favor ingresar datos del artículo</h4>
-							<div class="form-group">
-								<label>Código del Proveedor</label>
-								<input type="text" class="form-control" name="" value="001">
-							</div>
+							<h4>Favor ingresar datos del proveedor</h4>
 							<div class="form-group">
 								<label>Nombre</label>
-								<input type="text" class="form-control" name="">
+								<input type="text" class="form-control" name="Nombre" id="Nombre">
 							</div>
 							<div class="form-group">
 								<label>Dirección</label>
-								<input type="text" class="form-control" name="">
+								<input type="text" class="form-control" name="Direccion" id="Direccion">
 							</div>
 							<div class="form-group">
 								<label>Fecha ingreso</label>
-								<input type='date' class="form-control" name="">
+								<input type='date' class="form-control" name="Fecha" id="Fecha">
 							</div>
 							<div class="form-group">
 								<label>Cédula</label>
-								<input type='text' class="form-control" name="">
+								<input type='text' class="form-control" name="Cedula" id="Cedula">
 							</div>
 							<div class="form-group">
-								<label>Categoría</label>
-								<select name="categoria">
-									<option>Frenos</option>
-									<option>Aceites</option>
-									<option>Llantas</option>
-								</select>
+								<label>Usuario</label>
+								<select class="form-control" id="categoria" name="Categoria" id="Categoria">
+									@forelse($categorias as $categorias)
+										<option value="{{$categorias->int}}">
+											{{$categorias->nombre}}
+										</option>
+									@empty
+										No hay categorias disponibles.
+									@endforelse
+							</select>
 							</div>
 						</div>
 						<div class="modal-footer">
@@ -140,7 +50,7 @@
 			</div>
 		</div>
 	
-		<div id="modalCategoriaProveedor" class="modal modal-top fade">
+<!--		<div id="modalCategoriaProveedor" class="modal modal-top fade">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 					<form id="add-event">
@@ -162,18 +72,18 @@
 					</form>
 				</div>
 			</div>
-		</div>
+		</div>-->
 
 		<div class="section-title text-center">
 			<br><h3>Mantenimiento de proveedores</h3>
 			<button data-toggle="modal" data-target="#modalProveedor" class="sim-btn hvr-bounce-to-top">Crear proveedor</button>
-            <button data-toggle="modal" data-target="#modalCategoriaProveedor" class="sim-btn hvr-bounce-to-top">Crear categoría de proveedor</button>
+       <!--     <button data-toggle="modal" data-target="#modalCategoriaProveedor" class="sim-btn hvr-bounce-to-top">Crear categoría de proveedor</button>-->
 		</div>
 
-		<label>
+<!--		<label>
 			Buscar por coóigo de proveedor
 			<input type="search" class="form-control input-sm" placeholder="" aria-controls="example" />
-		</label>
+		</label>-->
 		<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 			<thead>
 				<tr>
@@ -187,80 +97,79 @@
 				</tr>
 			</thead>
 			<tbody>
+				@forelse($proveedor as $proveedor)
 				<tr>
-					<td>001</td>
-					<td>arosyllantasmundiales</td>
-					<td>San José</td>
-					<td>02/07/2021</td>
-					<td>31322523</td>
-					<td>Llantas</td>
+					<td>{{$proveedor->id}}</td>				
+					<td>{{$proveedor->nombre}}</td>
+					<td>{{$proveedor->direccion}}</td>
+					<td>{{date('Y-m-d', strtotime($proveedor->fecha))}}</td>
+					<td>{{$proveedor->cedula}}</td>
+					<td>{{$proveedor->nombreC}}</td>
 					<td>
-						<button data-toggle="modal" data-target="#modalProveedor" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
+						<button data-toggle="modal" data-target="#modalEditarProveedor" 
+						class="button--save datatable-button fa-edit"></button>
+						<form method="POST" action="{{ url('/crearProveedorAdmin'.$proveedor->id) }}">
+							@csrf 
+							{{ @method_field('DELETE') }}
+							<button class="button--delete datatable-button fa-trash"></button>
+						</form>
 					</td>
 				</tr>
-				<tr>
-					<td>002</td>
-					<td>Pennzoil</td>
-					<td>San José</td>
-					<td>02/07/2021</td>
-					<td>3454364</td>
-					<td>Aceites</td>
-					<td>
-						<button data-toggle="modal" data-target="#modalProveedor" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
-					</td>
-				</tr>
-				<tr>
-					<td>003</td>
-					<td>Castrol</td>
-					<td>San José</td>
-					<td>02/07/2021</td>
-					<td>7465411</td>
-					<td>Aceites</td>
-					<td>
-						<button data-toggle="modal" data-target="#modalProveedor" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
-					</td>
-				</tr>
-	
+			@empty
+				No hay datos que mostrar.
+			@endforelse
 			</tbody>
 		</table>
 
-		<!--Fin contenido-->
-
-		<br>
-		<div class="copyrights">
-			<div class="container">
-				<div class="footer-distributed">
-					<div class="footer-center">
-						<p class="footer-links">
-							<!--<a href="#">Inicio</a>
-							<a href="#services">Servicios</a>
-							<a href="#about">Sobre Nosotros</a>
-							<a href="#contact">Contacto</a>-->
-						</p>
-						<p class="footer-company-name">Todos los derechos reservados &copy; 2021 FUNG Servicio Automotriz</p>
-					</div>
+		<div id="modalEditarProveedor" class="modal modal-top fade">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<form id="add-event" method="POST" action="{{ url('/crearProveedorAdmin/'.$proveedor->id) }}">
+						@csrf
+						{{ @method_field('PATCH') }}
+						<div class="modal-body">
+							<h4>Favor ingresar datos del proveedor</h4>
+							<div class="form-group">
+								<label>Identificador del proveedor</label>
+								<input type="text" class="form-control" name="IdM" id="IdM">
+							</div>
+							<div class="form-group">
+								<label>Nombre</label>
+								<input type="text" class="form-control" name="NombreM" id="NombreM">
+							</div>
+							<div class="form-group">
+								<label>Dirección</label>
+								<input type="text" class="form-control" name="DireccionM" id="DireccionM">
+							</div>
+							<div class="form-group">
+								<label>Fecha ingreso</label>
+								<input type='date' class="form-control" name="FechaM" id="FechaM">
+							</div>
+							<div class="form-group">
+								<label>Cédula</label>
+								<input type='text' class="form-control" name="CedulaM" id="CedulaM">
+							</div>
+							<div class="form-group">
+								<label>Usuario</label>
+								<select class="form-control" id="categoria" name="CategoriaM" id="CategoriaM">
+									@forelse($categorias as $categoria)
+										<option value="{{$categorias->int}}">
+											{{$categorias->nombre}}
+										</option>
+									@empty
+										No hay categorias disponibles.
+									@endforelse
+							</select>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary" >Guardar</button>
+							<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>        
+						</div>
+					</form>
 				</div>
 			</div>
-		</div>
 
-		<a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>	
-		
-		<!-- ALL JS FILES -->
-		<script src="../js/all.js"></script>
-		<!-- Camera Slider -->
-		<!--<script src="js/jquery.mobile.customized.min.js"></script>-->
-		<script src="../js/jquery.easing.1.3.js"></script> 
-		<script src="../js/parallaxie.js"></script>
-		<script src="../js/headline.js"></script>
-		<!-- Contact form JavaScript -->
-		<script src="../js/jqBootstrapValidation.js"></script>
-		<script src="../js/contact_me.js"></script>
-		<!-- ALL PLUGINS -->
-		<script src="../js/custom.js"></script>
-		<script src="../js/jquery.vide.js"></script>
+		<!--Fin contenido-->
 
-	</body>
-</html>
+@endsection
