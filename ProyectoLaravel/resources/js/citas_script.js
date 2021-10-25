@@ -35,7 +35,7 @@ jQuery(document).ready(function(){
 			dayNamesShort: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
 			buttonText: { today: 'Hoy', month: 'Mes', week: 'Semana', day: 'Día' },
 			header: { left: 'title', center: 'month,agendaWeek,agendaDay', right: 'today prev,next' },
-			events: [
+			events: [/*
 				{
 					title: 'Barber',
 					description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
@@ -135,7 +135,7 @@ jQuery(document).ready(function(){
 					className: 'fc-bg-blue',
 					icon : "medkit",
 					allDay: false
-				}
+				}*/
 			],
 			eventRender: function(event, element) {
 				if(event.icon){
