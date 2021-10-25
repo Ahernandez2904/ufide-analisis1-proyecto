@@ -74,22 +74,40 @@ class perfilclienteVehiculoController extends Controller
      * @param  \App\Models\perfilclienteVehiculo  $perfilclienteVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, perfilclienteVehiculo $perfilclienteVehiculo)
+    public function update(Request $request, $id)
     {
         //
-        DB::select('CALL `fungdb`.`modificar_vehiculo_n`('.$request->input('Id').',"'.$request->input('anio').'","'.$request->input('cilindraje_motor').'","'.$request->input('marca').'","'.$request->input('modelo').'","'.$request->input('placa').'");');
-        return redirect()->route('perfilAdminVehiculo');
+        DB::select('CALL `fungdb`.`modificar_vehiculo_n`('.
+        $request->input('id').',
+        "'.$request->input('anio').'",
+        "'.$request->input('cilindraje_motor').'",
+        "'.$request->input('marca').'",
+        "'.$request->input('modelo').'",
+        "'.$request->input('placa').'");');
+    
+        return redirect()->route('perfilClienteVehiculo.index');
+        
         //return response()->json($request);
     }
+
+   
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\perfilclienteVehiculo  $perfilclienteVehiculo
+     * @param  \App\Models\perfilAdminVehiculo  $perfilAdminVehiculo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(perfilclienteVehiculo $perfilclienteVehiculo)
+    public function destroy($id)
     {
-        //
+        try { 
+        DB::select('call `fungdb`.`ELIMINAR_VEHICULO`('.$id.');');
+    } catch (ModelNotFoundException $exception) {
+        return back()->withError($exception->getMessage())->withInput();
     }
-}
+        return redirect()->route('perfilClienteVehiculo.index');
+        
+        //return response()->json($request);
+    } 
+
+} 

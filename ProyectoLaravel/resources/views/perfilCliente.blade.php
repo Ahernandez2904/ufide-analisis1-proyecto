@@ -1,4 +1,4 @@
-@extends('layoutAdmin')
+@extends('layout')
 
 @section('titulo','Usuario')
 
