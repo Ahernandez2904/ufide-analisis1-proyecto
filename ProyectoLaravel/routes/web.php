@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\perfilAdminVehiculoController;
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('/user', UserController::class);
 
 Route::view('/', 'Index')->name('index');
 Route::resource('CitasAdmin', 'citas_admin_controller');
