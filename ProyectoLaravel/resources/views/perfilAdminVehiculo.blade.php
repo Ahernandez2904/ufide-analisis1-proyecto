@@ -174,34 +174,43 @@
 							<label>IDVehiculo</label>
 							<select class="form-control"  id="id" name="id">
 								@forelse($vehiculos as $vehiculo)
-									<option value="{{$vehiculo->id}}">{{$vehiculo->id}}</option>
+										@if (old('id') == $vehiculo->id)
+													<option value="{{$vehiculo->id}}" selected>{{$vehiculo->id}}</option>
+															@else
+													<option value="{{$vehiculo->id}}">{{$vehiculo->id}}</option>
+												@endif
+
 								@empty
 									No hay carros disponibles.
 								@endforelse
 							</select>
 						</div>
 
-					
-
+				
 						<div class="form-group">
 							<label>Año</label>
-							<input type="text" class="form-control" name="anio" id="anio">
+							<input type="text" class="form-control"  name="anio" value="{{ old('anio', $vehiculo->anio) }}" />
 						</div>
 						<div class="form-group">
 							<label>Cilindrada</label>
-							<input type="text" class="form-control" name="cilindraje_motor" id="cilindraje_motor">
+						
+							<input type="text" class="form-control"  name="cilindraje_motor" value="{{ old('cilindraje_motor', $vehiculo->cilindraje_motor) }}" />
 						</div>
 						<div class="form-group">
 							<label>Marca</label>
-							<input type="text" class="form-control" name="marca" id="marca">
+						
+							<input type="text" class="form-control"  name="marca" value="{{ old('marca', $vehiculo->marca) }}" />
+							
 						</div>
 						<div class="form-group">
 							<label>Modelo</label>
-							<input type="text" class="form-control" name="modelo" id="modelo">
+						
+							<input type="text" name="modelo"class="form-control"   value="{{ old('modelo', $vehiculo->modelo) }}" />
 						</div>
 						<div class="form-group">
 							<label>Placa</label>
-							<input type="text" class="form-control" name="placa" id="placa">
+							
+							<input type="text" class="form-control"  name="placa" value="{{ old('placa', $vehiculo->placa) }}" />
 						</div>
 
 

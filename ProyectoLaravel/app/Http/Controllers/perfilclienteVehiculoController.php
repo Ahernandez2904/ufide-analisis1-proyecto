@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DoctrineDBALDriverPDOConnection;
 use Illuminate\Support\Facades\DB;
 
+
 class perfilclienteVehiculoController extends Controller
 {
     /**
