@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use DoctrineDBALDriverPDOConnection;
+use Illuminate\Support\Facades\DB;
 
 class serv_adminController extends Controller
 {
@@ -13,15 +16,15 @@ class serv_adminController extends Controller
      */
     public function index()
     {
-        //$usuario->session()->get('id'); 
-        $usuario = '2'; //test en lo que se averigua como sacar el usuario de session storage
-        //->paginate(20); //resolver lo de la paginacion
-        $citas = DB::select('CALL `fungdb`.`mostrar_todos_cita`();');
-        $vehiculos = DB::select('CALL `fungdb`.`mostrar_todos_vehiculo`();');
-        $usuarios = DB::select('CALL `fungdb`.`mostrar_clientes`();');
-        return view('citasAdmin', [ "citas" => $citas, "vehiculos" => $vehiculos, "usuarios" => $usuarios ]);
+        $servicios = DB::select('CALL `fungdb`.`mostrar_servicios`');
+        return view('serviciosAdmin', [ "servicios" => $servicios ]);
     }
-
+   
+    public function create()
+    {
+        //
+        return view ("serviciosAdmin");
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -30,12 +33,12 @@ class serv_adminController extends Controller
      */
     public function store(Request $request)
     {
-        DB::select('CALL `fungdb`.`crear_cita`("'.
-        $request->input('Fecha').' '.$request->input('Hora').'", '.
-        $request->input('Usuario').','.
-        $request->input('Vehiculo').');');
-        return redirect()->route('CitasAdmin.index');
-        //return response()->json($request);
+    
+        serv_adminController::create($request->all());
+        return view ("serviciosAdmin");
+        
+   
+ 
     }
 
     /**
@@ -47,13 +50,7 @@ class serv_adminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        DB::select('CALL `fungdb`.`modificar_cita`('.
-        $request->input('Id').',"'.
-        $request->input('Fecha').' '.$request->input('Hora').':00", '.
-        $request->input('Usuario').','.
-        $request->input('Vehiculo').');');
-        return redirect()->route('CitasAdmin.index');
-        //return response()->json($request);
+        return view ("serviciosAdmin");
     }
 
     /**
@@ -64,7 +61,6 @@ class serv_adminController extends Controller
      */
     public function destroy($id)
     {
-        DB::select('call `fungdb`.`eliminar_cita`('.$id.');');
-        return redirect()->route('CitasAdmin.index');
+        return view ("serviciosAdmin");
     }
 }

@@ -90,36 +90,34 @@
 			<div class="heading small-heading">
 				<h1></h1>
 				<h3 class="cd-headline clip is-full-width">
-					<span>Bienvenido: "Cliente"</span>
+					<span>Bienvenido: "Admin"</span>
 				</h3>
 			</div>
 		</section>
 
 		<!--Contenido-->
-		<div id="modalEditarServicio" class="modal modal-top fade">
+		<div id="modalCrearServicio" class="modal modal-top fade">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
-					<form id="add-event">
+				<form method="POST" action="{{ route('serviciosAdmin.store')}}" id="add-event">
+						@csrf
 						<div class="modal-body">
 							<div class="form-group">
 								<label for="NombreServ">Nombre del servicio</label>
-								<input type="text" class="form-control" id="NombreServ" placeholder="Mecanica general" name="NombreServ">
+								<input type="text" class="form-control" id="nombre" placeholder="Mecanica general" name="nombre">
 							</div>
-							<div class="form-group">
-								<label for="DescripServ">Descripción del servicio</label>
-								<input type="text" class="form-control" id="DescripServ" placeholder="Cambio de llantas completo con ajuste" name="DescripServ">
-							</div>
+						
 							<div class="form-group">
 								<label for="precioEsti">Precio estimado</label>
-								<input type="text" class="form-control" id="precioEsti" placeholder="200,000 a 500,000" name="precioEsti">
+								<input type="text" class="form-control" id="costo" placeholder="200,000 a 500,000" name="costo">
 							</div>
 							<div class="form-group">
 								<label for="TiempoEsti">Tiempo estimado</label>
-								<input type="text" class="form-control" id="TiempoEsti" placeholder="2 horas" name="TiempoEsti">
+								<input type="text" class="form-control" id="tiempo_estimado" placeholder="2 horas" name="tiempo_estimado">
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button type="submit" class="btn btn-primary">Guardar</button>
+								<button class="btn btn-success">Guardar</button>
 							<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
 						</div>
 					</form>
@@ -127,7 +125,7 @@
 			</div>
 		</div>
 
-		<div id="modalEditarPromo" class="modal modal-top fade">
+		<div id="modalCrearPromo" class="modal modal-top fade">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 					<form id="add-event">
@@ -136,10 +134,7 @@
 								<label for="NombreServ">Nombre del servicio</label>
 								<input type="text" class="form-control" id="NombreServ" placeholder="Mecanica general" name="NombreServ">
 							  </div>
-							  <div class="form-group">
-								<label for="DescripServ">Descripción del servicio</label>
-								<input type="text" class="form-control" id="DescripServ" placeholder="Cambio de llantas completo con ajuste" name="DescripServ">
-							  </div>
+							 
 							  <div class="form-group">
 								<label for="precioEsti">Precio estimado</label>
 								<input type="text" class="form-control" id="precioEsti" placeholder="200,000 a 500,000" name="precioEsti">
@@ -160,62 +155,57 @@
 
 		<div class="section-title text-center">
 			<br><h3>Mantenimiento de servicios</h3>
-			<button data-toggle="modal" data-target="#modalEditarServicio" class="sim-btn hvr-bounce-to-top">Crear servicio</button>
+			<button data-toggle="modal" data-target="#modalCrearServicio" class="sim-btn hvr-bounce-to-top">Crear servicio</button>
 		</div>
-		<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+
+		<table id="" class="table table-bordered" cellspacing="0" width="100%">
 			<thead>
 				<tr>
 					<th>Nombre</th>
-					<th>Descripcion</th>
 					<th>Precio Estimado</th>
 					<th>Tiempo Estimado</th>
 			  		<th>Editar/eliminar</th>
+				
+					
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>Ajuste de frenos</td>
-					<td>Este servicio es el ajuste de todos los frenos las 4 llantas y el ajuste del freno de mano</td>
-					<td>₡20,000 a ₡40,000</td>
-					<td>1 hora</td>
+				@forelse($servicios as $servicio)
+					
+					<td>{{$servicio->nombre}}</td>
+					<td>{{$servicio->costo}}</td>
+					<td>{{$servicio->tiempo_estimado}}</td>
+					
+					
 					<td>
-						<button data-toggle="modal" data-target="#modalEditarServicio" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
-					</td>
-				</tr>
-				<tr>
-					<td>Cambio de liquidos</td>
-					<td>Este servicio es cambio de todos liquidos del vehiculo exeptuando la gasolina y el aceite(Liquido de frenos, power steering, coolant y liquido de parabrisas)</td>
-					<td>₡30,000 a ₡50,000</td>
-					<td>2 horas</td>
-					<td>
-						<button data-toggle="modal" data-target="#modalEditarServicio" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
-					</td>
-				</tr>
-				<tr>
-					<td>Overhaul</td>
-					<td>Este es un proceso largo del motor el cual se encarga de probar y reparar todos los componentes internos dentro del long block y el short block de un vehiculo</td>
-					<td>₡250,000 a ₡600,000</td>
-					<td>2 días</td>
+					
+
 				
-					<td>
-						<button data-toggle="modal" data-target="#modalEditarServicio" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
+					<button data-toggle="modal" data-target="#modalEditarVehiculo" class="button--save datatable-button fa-edit"></button>
+				
+					@if (session('error'))
+						<div class="alert alert-danger">{{ session('error') }}</div>
+									@endif
+					<form method="POST" action="{{ url('/serviciosAdmin/'.$servicio->id) }}">
+							@csrf 
+							{{ @method_field('DELETE') }}
+							<button onclick="return confirm('¿Esta seguro que desea eliminar este servicio?')" class="button--delete datatable-button fa-trash"></button>
+							
+						
+							
+
+
+						</form>
 					</td>
 				</tr>
-				<tr>
-			  		<td>Cambio de llantas</td>
-					<td>Este consiste en remplazar las llantas actuales por llantas nuevas con sus debidas valvulas y calibracion de la presion segun el vehiculo.</td>
-					<td>₡200,000 a ₡1,000,000</td>
-					<td>2 horas</td>
-					<td>
-						<button data-toggle="modal" data-target="#modalEditarServicio" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+			@empty
+				No hay datos que mostrar.
+			@endforelse
+			
+		</tbody>
+	</table>
+
 		<div class="section-title text-center">
 			<br><h3>Mantenimiento de promociones de servicios</h3>
 			<button data-toggle="modal" data-target="#modalEditarPromo" class="sim-btn hvr-bounce-to-top">Crear promoción de servicio</button>
