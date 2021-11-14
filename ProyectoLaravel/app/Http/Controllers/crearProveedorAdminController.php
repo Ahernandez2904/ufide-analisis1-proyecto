@@ -31,13 +31,23 @@ class crearProveedorAdminController extends Controller
      */
     public function store(Request $request)
     {
-        DB::select('CALL `fungdb`.`crearProveedor`("'.
-        $request->input('Nombre').'","'.
-        $request->input('Direccion').'","'.
-        $request->input('Fecha').'","'.
-        $request->input('Cedula').'","'.
-        $request->input('Categoria').'");');
-        return redirect()->route('crearProveedorAdmin.index');
+        if ($request->has('form1')) {
+            DB::select('CALL `fungdb`.`crearProveedor`("'.
+            $request->input('Nombre').'","'.
+            $request->input('Direccion').'","'.
+            $request->input('Fecha').'","'.
+            $request->input('Cedula').'","'.
+            $request->input('Categoria').'");');
+            return redirect()->route('crearProveedorAdmin.index');
+        }
+
+        if ($request->has('form2')) {
+            DB::select('CALL `fungdb`.`crear_categoria_proveedor`("'.
+            $request->input('NombreC').'");');
+            return redirect()->route('crearProveedorAdmin.index');
+        }
+        
+       // return redirect()->route('crearProveedorAdmin.index');
         //return response()->json($request);
     }
 

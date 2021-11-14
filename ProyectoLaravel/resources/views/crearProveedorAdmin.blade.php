@@ -8,7 +8,7 @@
 		<div id="modalProveedor" class="modal modal-top fade">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
-					<form id="add-event" method="POST" action="{{ url('/crearProveedorAdmin') }}"">
+					<form id="add-event" method="POST" action="{{ url('/crearProveedorAdmin') }}">
 						@csrf
 						<div class="modal-body">
 							<h4>Favor ingresar datos del proveedor</h4>
@@ -42,7 +42,7 @@
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button type="submit" class="btn btn-primary">Guardar</button>
+							<button type="submit" name='form1' class="btn btn-primary">Guardar</button>
 							<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
 						</div>
 					</form>
@@ -50,34 +50,31 @@
 			</div>
 		</div>
 	
-<!--		<div id="modalCategoriaProveedor" class="modal modal-top fade">
+		<div id="modalCategoriaProveedor" class="modal modal-top fade">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
-					<form id="add-event">
+					<form id="add-event2" method="POST" action="{{ url('/crearProveedorAdmin') }}">
+						@csrf
 						<div class="modal-body">
 							<h4>Favor ingresar datos de la categoría de los artículos a crear</h4>
 							<div class="form-group">
-								<label>Código del categoría</label>
-								<input type="text" class="form-control" name="" value="001">
-							</div>
-							<div class="form-group">
 								<label>Nombre</label>
-								<input type="text" class="form-control" name="">
+								<input type="text" class="form-control" name="NombreC" id="NombreC">
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button type="submit" class="btn btn-primary">Guardar</button>
+							<button type="submit" name='form2' class="btn btn-primary">Guardar</button>
 							<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
 						</div>
 					</form>
 				</div>
 			</div>
-		</div>-->
+		</div>
 
 		<div class="section-title text-center">
 			<br><h3>Mantenimiento de proveedores</h3>
 			<button data-toggle="modal" data-target="#modalProveedor" class="sim-btn hvr-bounce-to-top">Crear proveedor</button>
-       <!--     <button data-toggle="modal" data-target="#modalCategoriaProveedor" class="sim-btn hvr-bounce-to-top">Crear categoría de proveedor</button>-->
+            <button data-toggle="modal" data-target="#modalCategoriaProveedor" class="sim-btn hvr-bounce-to-top">Crear categoría de proveedor</button>
 		</div>
 
 <!--		<label>

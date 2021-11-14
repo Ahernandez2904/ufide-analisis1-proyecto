@@ -58,48 +58,56 @@
 				<tr>
 					<th>Código del Cliente</th>
 					<th>Nombre del Cliente</th>
+					<th>Apellidos</th>
 					<th>Correo</th>
-					<th>Teléfono</th>
 					<th>Editar/Eliminar</th>
 					
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>001</td>
-					<td>Alejandro</td>
-					<td>gregrg@gmail.com</td>
-					<td>2484154</td>
-					<td>
-						<button data-toggle="modal" data-target="#modalUsuario" class="button--save datatable-button fa-edit"></button>
-						<button class="button--delete datatable-button fa-trash"></button>
-					</td>
-				
-						
-				</tr>
+				@forelse ($clientes as $clientes)
+					<tr>
+						<td>{{$clientes->id}}</td>
+						<td>{{$clientes->nombre}}</td>
+						<td>{{$clientes->apellidos}}</td>
+						<td>{{$clientes->correo}}</td>
+						<td>
+							<button data-toggle="modal" data-target="#modalEditarCliente" 
+							class="button--save datatable-button fa-edit"></button>
+						</td>
+					</tr>
+				@empty
+						No hay datos que mostrar.			
+				@endforelse
 			</tbody>
 		</table>
 
-		<div id="modalUsuario" class="modal modal-top fade">
+		<div id="modalEditarCliente" class="modal modal-top fade">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
-					<form id="add-event">
+					<form id="add-event" method="POST" action="{{ url('/perfilCliente/'.$clientes->id) }}">
+						@csrf
+						{{ @method_field('PATCH') }}
 						<div class="modal-body">
 							<div class="form-group">
+								<label>Identificador</label>
+								<input type="text" class="form-control" name="Id">
+							</div>
+							<div class="form-group">
 								<label>Nombre</label>
-								<input type="text" class="form-control" name="">
+								<input type="text" class="form-control" name="Nombre">
 							</div>
 							<div class="form-group">
 								<label>Apellidos</label>
-								<input type="text" class="form-control" name="">
+								<input type="text" class="form-control" name="Apellidos">
 							</div>
 							<div class="form-group">
 								<label>Correo</label>
-								<input type="text" class="form-control" name="">
+								<input type="text" class="form-control" name="Correo">
 							</div>
 							<div class="form-group">
 								<label>Contraseña</label>
-								<input type="text" class="form-control" name="">
+								<input type="text" class="form-control" name="Clave">
 							</div>
 						</div>
 						<div class="modal-footer">
