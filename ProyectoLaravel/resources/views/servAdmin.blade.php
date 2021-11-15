@@ -112,6 +112,7 @@
         <table id="" class="table table-bordered" cellspacing="0" width="100%">
 			<thead>
 				<tr>
+				<th>ID</th>
 					<th>Nombre</th>
 					<th>Precio Estimado</th>
 					<th>Tiempo Estimado</th>
@@ -123,7 +124,7 @@
 			<tbody>
 				<tr>
 				@forelse($servicios as $servicio)
-					
+				<td>{{$servicio->id}}</td>
 					<td>{{$servicio->nombre}}</td>
 					<td>{{$servicio->costo}}</td>
 					<td>{{$servicio->tiempo_estimado}}</td>
@@ -133,12 +134,12 @@
 					
 
 				
-					<button data-toggle="modal" data-target="#modalEditarVehiculo" class="button--save datatable-button fa-edit"></button>
+					<button data-toggle="modal" data-target="#modalEditarServicio" class="button--save datatable-button fa-edit"></button>
 				
 					@if (session('error'))
 						<div class="alert alert-danger">{{ session('error') }}</div>
 									@endif
-					<form method="POST" action="{{ url('/serviciosAdmin/'.$servicio->id) }}">
+					<form method="POST" action="{{ url('/servAdmin/'.$servicio->id) }}">
 							@csrf 
 							{{ @method_field('DELETE') }}
 							<button onclick="return confirm('¿Esta seguro que desea eliminar este servicio?')" class="button--delete datatable-button fa-trash"></button>
@@ -158,7 +159,54 @@
 	</table>
 
 
-	
+	<div id="modalEditarServicio" class="modal modal-top fade">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<form id="add-event" method="POST" action="{{ url('/servAdmin/'.$servicio->id) }}">
+					@csrf
+					{{ @method_field('PATCH') }}
+					<div class="modal-body">
+						
+					<div class="form-group">
+							<label>IDServicio</label>
+							<select class="form-control"  id="id" name="id">
+							@forelse($servicios as $servicio)
+										@if (old('id') == $servicio->id)
+													<option value="{{$servicio->id}}" selected>{{$servicio->id}}</option>
+															@else
+													<option value="{{$servicio->id}}">{{$servicio->id}}</option>
+												@endif
+
+								@empty
+									No hay carros disponibles.
+								@endforelse
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label>Nombre</label>
+							<input type="text" class="form-control"  name="nombre" value="{{ old('nombre', $servicio->nombre) }}" />
+						</div>
+						<div class="form-group">
+							<label>Costo</label>
+						
+							<input type="text" class="form-control"  name="costo" value="{{ old('costo', $servicio->costo) }}" />
+						</div>
+						<div class="form-group">
+							<label>Tiempo Estimado</label>
+						
+							<input type="text" class="form-control"  name="tiempo_estimado" value="{{ old('tiempo_estimado', $servicio->tiempo_estimado) }}" />
+							
+						</div>
+					
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary" >Guardar</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>        
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
 
 

@@ -153,63 +153,49 @@
 			</div>
 		</div>
 
+		
+
 		<div class="section-title text-center">
 			<br><h3>Mantenimiento de servicios</h3>
 			<button data-toggle="modal" data-target="#modalCrearServicio" class="sim-btn hvr-bounce-to-top">Crear servicio</button>
+		<a href="servAdmin">	<button   class="sim-btn hvr-bounce-to-top">Ver servicios</button> </a>
 		</div>
 
-		<table id="" class="table table-bordered" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th>Nombre</th>
-					<th>Precio Estimado</th>
-					<th>Tiempo Estimado</th>
-			  		<th>Editar/eliminar</th>
-				
-					
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-				@forelse($servicios as $servicio)
-					
-					<td>{{$servicio->nombre}}</td>
-					<td>{{$servicio->costo}}</td>
-					<td>{{$servicio->tiempo_estimado}}</td>
-					
-					
-					<td>
-					
 
-				
-					<button data-toggle="modal" data-target="#modalEditarVehiculo" class="button--save datatable-button fa-edit"></button>
-				
-					@if (session('error'))
-						<div class="alert alert-danger">{{ session('error') }}</div>
-									@endif
-					<form method="POST" action="{{ url('/serviciosAdmin/'.$servicio->id) }}">
-							@csrf 
-							{{ @method_field('DELETE') }}
-							<button onclick="return confirm('¿Esta seguro que desea eliminar este servicio?')" class="button--delete datatable-button fa-trash"></button>
-							
+		<div id="modalCrearServicio" class="modal modal-top fade">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+				<form method="POST" action="{{ route('serviciosAdmin.store')}}" id="add-event">
+						@csrf
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="NombreServ">Nombre del servicio</label>
+								<input type="text" class="form-control" id="nombre" placeholder="Mecanica general" name="nombre">
+							</div>
 						
-							
-
-
-						</form>
-					</td>
-				</tr>
-			@empty
-				No hay datos que mostrar.
-			@endforelse
-			
-		</tbody>
-	</table>
-
+							<div class="form-group">
+								<label for="precioEsti">Precio estimado</label>
+								<input type="text" class="form-control" id="costo" placeholder="200,000 a 500,000" name="costo">
+							</div>
+							<div class="form-group">
+								<label for="TiempoEsti">Tiempo estimado</label>
+								<input type="text" class="form-control" id="tiempo_estimado" placeholder="2 horas" name="tiempo_estimado">
+							</div>
+						</div>
+						<div class="modal-footer">
+								<button class="btn btn-success">Guardar</button>
+							<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
 		<div class="section-title text-center">
 			<br><h3>Mantenimiento de promociones de servicios</h3>
 			<button data-toggle="modal" data-target="#modalEditarPromo" class="sim-btn hvr-bounce-to-top">Crear promoción de servicio</button>
 		</div>
+
 		<table id="example1" class="table table-striped table-bordered" cellspacing="0" width="100%">
 			<thead>
 				<tr>

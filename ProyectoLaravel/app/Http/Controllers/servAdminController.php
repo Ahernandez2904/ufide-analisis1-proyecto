@@ -71,7 +71,15 @@ class servAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::select('CALL `fungdb`.`modificar_servicio`('.
+        $request->input('id').',"'.
+        $request->input('nombre').'", '.
+        $request->input('costo').','.
+        $request->input('tiempo_estimado').');');
+    
+
+        
+        return redirect()->route('servAdmin.index');
     }
 
     /**
@@ -82,6 +90,13 @@ class servAdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try { 
+        DB::select('call `fungdb`.`eliminar_servicio`('.$id.');');
+    } catch (ModelNotFoundException $exception) {
+        return back()->withError($exception->getMessage())->withInput();
     }
+        return redirect()->route('servAdmin.index');
+        
+        //return response()->json($request);
+    } 
 }

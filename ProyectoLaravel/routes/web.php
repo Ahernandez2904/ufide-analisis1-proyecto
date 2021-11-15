@@ -19,6 +19,7 @@ Route::resource('clientesAdmin', 'clientesAdminController');
 Route::resource('crearProveedorAdmin', 'crearProveedorAdminController');
 Route::resource('serviciosAdmin', 'serv_adminController');
 Route::resource('servAdmin', 'servAdminController');
+Route::resource('serviciosCliente', 'serviciosClienteController');
 Route::resource('categoriasProveedor', 'categoriasProveedorController');
 Route::resource('categoriasArticulos', 'categoriasArticulosController');
 
