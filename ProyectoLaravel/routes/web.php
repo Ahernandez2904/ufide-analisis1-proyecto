@@ -18,6 +18,7 @@ Route::resource('perfilClienteVehiculo', 'perfilClienteVehiculoController');
 Route::resource('clientesAdmin', 'clientesAdminController');
 Route::resource('crearProveedorAdmin', 'crearProveedorAdminController');
 Route::resource('serviciosAdmin', 'serv_adminController');
+Route::resource('servAdmin', 'servAdminController');
 Route::resource('categoriasProveedor', 'categoriasProveedorController');
 Route::resource('categoriasArticulos', 'categoriasArticulosController');
 
