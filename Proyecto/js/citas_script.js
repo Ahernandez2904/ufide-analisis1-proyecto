@@ -7,7 +7,7 @@ jQuery(document).ready(function(){
 		multipleDatesSeparator: " - ",
     });
   	jQuery("#add-event").submit(function(){
-		alert("Submitted");
+		alert("Actualizado, muchas gracias");
 		var values = {};
 		$.each($('#add-event').serializeArray(), function(i, field) {
 			values[field.name] = field.value;

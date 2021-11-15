@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use DoctrineDBALDriverPDOConnection;
 use Illuminate\Support\Facades\DB;
 
+/* -------------------------------
+CONTROLLER DE servAdmin (Promociones)
+------------------------------- */
+
 class servAdminController extends Controller
 {
     /**
@@ -15,18 +19,8 @@ class servAdminController extends Controller
      */
     public function index()
     {
-         $servicios = DB::select('CALL `fungdb`.`mostrar_servicios`');
+        $servicios = DB::select('CALL `fungdb`.`mostrar_promociones`');
         return view('servAdmin', [ "servicios" => $servicios ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -37,29 +31,13 @@ class servAdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        DB::select('CALL `fungdb`.`crear_servicio`('.
+        '"'.$request->input('nombre').'", '.
+        '"'.$request->input('descripcion').'", '.
+        $request->input('costo').', '.
+        '1'.', '. // ¿Es promoción? Verdadero
+        '"'.$request->input('tiempo_estimado').'");');
+        return redirect()->route('promocionesAdmin.index');
     }
 
     /**
@@ -72,14 +50,12 @@ class servAdminController extends Controller
     public function update(Request $request, $id)
     {
         DB::select('CALL `fungdb`.`modificar_servicio`('.
-        $request->input('id').',"'.
-        $request->input('nombre').'", '.
-        $request->input('costo').',"'.
-        $request->input('tiempo_estimado').'");');
-    
-
-        
-        return redirect()->route('servAdmin.index');
+        $id.', '.
+        '"'.$request->input('nombre').'", '.
+        '"'.$request->input('descripcion').'", '.
+        $request->input('costo').', '.
+        '"'.$request->input('tiempo_estimado').'");');
+        return redirect()->route('promocionesAdmin.index');
     }
 
     /**
@@ -90,13 +66,12 @@ class servAdminController extends Controller
      */
     public function destroy($id)
     {
-        try { 
-        DB::select('call `fungdb`.`eliminar_servicio`('.$id.');');
-    } catch (ModelNotFoundException $exception) {
-        return back()->withError($exception->getMessage())->withInput();
-    }
-        return redirect()->route('servAdmin.index');
-        
+        try {
+            DB::select('call `fungdb`.`eliminar_servicio`('.$id.');');
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+        return redirect()->route('promocionesAdmin.index');
         //return response()->json($request);
     } 
 }

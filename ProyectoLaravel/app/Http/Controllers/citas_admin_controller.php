@@ -50,7 +50,7 @@ class citas_admin_controller extends Controller
     public function update(Request $request, $id)
     {
         DB::select('CALL `fungdb`.`modificar_cita`('.
-        $request->input('Id').',"'.
+        $id.',"'.
         $request->input('Fecha').' '.$request->input('Hora').':00", '.
         $request->input('Usuario').','.
         $request->input('Vehiculo').');');
@@ -66,7 +66,11 @@ class citas_admin_controller extends Controller
      */
     public function destroy($id)
     {
-        DB::select('call `fungdb`.`eliminar_cita`('.$id.');');
+        try {
+            DB::select('call `fungdb`.`eliminar_cita`('.$id.');');
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
         return redirect()->route('CitasAdmin.index');
     }
 }

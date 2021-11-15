@@ -38,7 +38,7 @@ class citas_cliente_controller extends Controller
         $request->input('Fecha').' '.$request->input('Hora').'", '.
         $request->input('Usuario').','.
         $request->input('Vehiculo').');');
-        return redirect()->route('Citas.index');
+        return redirect()->route('CitasCliente.index');
         //return response()->json($request);
     }
 
@@ -52,11 +52,11 @@ class citas_cliente_controller extends Controller
     public function update(Request $request, $id)
     {
         DB::select('CALL `fungdb`.`modificar_cita`('.
-        $request->input('Id').',"'.
+        $id.',"'.
         $request->input('Fecha').' '.$request->input('Hora').':00", '.
         $request->input('Usuario').','.
         $request->input('Vehiculo').');');
-        return redirect()->route('Citas.index');
+        return redirect()->route('CitasCliente.index');
         //return response()->json($request);
     }
 
@@ -68,7 +68,11 @@ class citas_cliente_controller extends Controller
      */
     public function destroy($id)
     {
-        DB::select('call `fungdb`.`eliminar_cita`('.$id.');');
-        return redirect()->route('Citas.index');
+        try {
+            DB::select('call `fungdb`.`eliminar_cita`('.$id.');');
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+        return redirect()->route('CitasCliente.index');
     }
 }

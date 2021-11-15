@@ -25,23 +25,91 @@
 		<tbody>
 			@forelse($citas as $cita)
 				<tr>
-					<td>{{ $cita->id}}</td>
+					<td>{{ $cita->id }}</td>
 					<td>{{ date('Y-m-d', strtotime($cita->fecha)) }}</td>
 					<td>{{ date('H:i:s', strtotime($cita->fecha)) }}</td>
 					<td>{{ $cita->marca }}</td>
 					<td>
-						<button data-toggle="modal" data-target="#modalInfo" 
+						<button data-toggle="modal" data-target="#modalInfo{{ $cita->id }}"
 						class="button--save datatable-button fa-info"></button>
 					</td>
 					<td>
-						<button data-toggle="modal" data-target="#modalEditarCita" class="button--save datatable-button fa-edit"></button>
-						<form method="POST" action="{{ url('/Citas/'.$cita->id) }}">
+						<button data-toggle="modal" data-target="#modalEditarCita{{ $cita->id }}" 
+						class="button--save datatable-button fa-edit"></button>
+						<form method="POST" action="{{ url('/CitasCliente/'.$cita->id) }}">
 							@csrf 
 							{{ @method_field('DELETE') }}
 							<button class="button--delete datatable-button fa-trash"></button>
 						</form>
 					</td>
 				</tr>
+
+				<div id="modalInfo{{ $cita->id }}" class="modal modal-top fade">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-body">
+								<div class="form-group">
+									<label>Correo de contacto: {{ $cita->correo }}</label>
+								</div>
+								<div class="form-group">
+									<label>Cilindraje de motor: {{ $cita->cilindraje }}</label>
+								</div>
+								<div class="form-group">
+									<label>Placa: {{ $cita->placa }}</label>
+								</div>
+								<div class="form-group">
+									<label>Modelo: {{ $cita->modelo }}</label>
+								</div>
+								<div class="form-group">
+									<label>Año del vehículo: {{ $cita->anio }}</label>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>        
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="modalEditarCita{{ $cita->id }}" class="modal modal-top fade">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<form id="add-event" method="POST" action="{{ url('/CitasCliente/'.$cita->id) }}">
+								@csrf
+								{{ @method_field('PATCH') }}
+								<div class="modal-body">
+									<div class="form-group">
+										<label>Fecha</label>
+										<input type="date" class="form-control" name="Fecha" id="Fecha" 
+											min="{{ date('Y-m-d', strtotime(Carbon\Carbon::now())) }}">
+									</div>
+									<div class="form-group">
+										<label>Hora</label>
+										<input type="time" class="form-control" name="Hora" id="Hora">
+									</div>
+									<div class="form-group">
+										<label>Usuario</label>
+										<input type="text" class="form-control" name="Usuario" id="Usuario" value="2">
+									</div>
+									<div class="form-group">
+										<label>Vehículo</label>
+										<select class="form-control" id="Vehiculo" name="Vehiculo">
+											@forelse($vehiculos as $vehiculo)
+												<option value="{{ $vehiculo->id }} ">{{ $vehiculo->placa }}</option>
+											@empty
+												No hay carros disponibles.
+											@endforelse
+										</select>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-success" >Guardar</button>
+									<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
 			@empty
 				No hay datos que mostrar.
 			@endforelse
@@ -51,7 +119,7 @@
 	<div id="modal-view-event-add" class="modal modal-top fade calendar-modal">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
-				<form id="add-event" method="POST" action="{{ url('/CitasAdmin') }}">
+				<form id="add-event" method="POST" action="{{ url('/CitasCliente') }}">
 					@csrf
 					<div class="modal-body">
 						<div class="form-group">
@@ -68,7 +136,7 @@
 							<input type="text" class="form-control" name="Usuario" id="Usuario" value="2" disabled>
 						</div>
 						<div class="form-group">
-							<label>Vehiculo</label>
+							<label>Vehículo</label>
 							<select class="form-control"  id="Vehiculo" name="Vehiculo">
 								@forelse($vehiculos as $vehiculo)
 									<option value="{{ $vehiculo->id }}">{{ $vehiculo->placa }}</option>
@@ -79,81 +147,10 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary" >Guardar</button>
+						<button type="submit" class="btn btn-success" >Guardar</button>
 						<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>        
 					</div>
 				</form>
-			</div>
-		</div>
-	</div>
-
-	<div id="modalEditarCita" class="modal modal-top fade">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<form id="add-event" method="POST" action="{{ url('/Citas/'.$cita->id) }}">
-					@csrf
-					{{ @method_field('PATCH') }}
-					<div class="modal-body">
-						<div class="form-group">
-							<label>Identificador de la cita</label>
-							<input type="text" class="form-control" name="Id" id="Id" value="{{ $cita->id }}">
-						</div>
-						<div class="form-group">
-							<label>Fecha</label>
-							<input type="date" class="form-control" name="Fecha" id="Fecha" 
-								min="{{ date('Y-m-d', strtotime(Carbon\Carbon::now())) }}">
-						</div>
-						<div class="form-group">
-							<label>Hora</label>
-							<input type="time" class="form-control" name="Hora" id="Hora">
-						</div>
-						<div class="form-group">
-							<label>Usuario</label>
-							<input type="text" class="form-control" name="Usuario" id="Usuario" value="2">
-						</div>
-						<div class="form-group">
-							<label>Vehiculo</label>
-							<select class="form-control" id="Vehiculo" name="Vehiculo">
-								@forelse($vehiculos as $vehiculo)
-									<option value="{{ $vehiculo->id }} ">{{ $vehiculo->placa }}</option>
-								@empty
-									No hay carros disponibles.
-								@endforelse
-							</select>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary" >Guardar</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>        
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-
-	<div id="modalInfo" class="modal modal-top fade">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-body">
-					<div class="form-group">
-						<label>Correo de contacto: {{ $cita->correo }}</label>
-					</div>
-					<div class="form-group">
-						<label>Cilindraje de motor: {{ $cita->cilindraje }}</label>
-					</div>
-					<div class="form-group">
-						<label>Placa: {{ $cita->placa }}</label>
-					</div>
-					<div class="form-group">
-						<label>Modelo: {{ $cita->modelo }}</label>
-					</div>
-					<div class="form-group">
-						<label>Año del vehículo: {{ $cita->anio }}</label>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>        
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>

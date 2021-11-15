@@ -10,7 +10,7 @@ Route::resource('/user', UserController::class);
 
 Route::view('/', 'Index')->name('index');
 Route::resource('CitasAdmin', 'citas_admin_controller');
-Route::resource('Citas', 'citas_cliente_controller');
+Route::resource('CitasCliente', 'citas_cliente_controller');
 Route::resource('perfilAdmin', 'perfilAdminController');
 Route::resource('perfilCliente', 'perfilClienteController');
 Route::resource('perfilAdminVehiculo', 'perfilAdminVehiculoController');
@@ -18,10 +18,11 @@ Route::resource('perfilClienteVehiculo', 'perfilClienteVehiculoController');
 Route::resource('clientesAdmin', 'clientesAdminController');
 Route::resource('crearProveedorAdmin', 'crearProveedorAdminController');
 Route::resource('serviciosAdmin', 'serv_adminController');
-Route::resource('servAdmin', 'servAdminController');
+Route::resource('promocionesAdmin', 'servAdminController');
 Route::resource('serviciosCliente', 'serviciosClienteController');
 Route::resource('categoriasProveedor', 'categoriasProveedorController');
 Route::resource('categoriasArticulos', 'categoriasArticulosController');
+Route::resource('feedbackAdmin', 'feedbackAdminController');
 
 
 

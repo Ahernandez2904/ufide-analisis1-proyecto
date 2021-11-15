@@ -18,6 +18,4 @@ class ServiciosClienteController extends Controller
         $servicios = DB::select('CALL `fungdb`.`mostrar_servicios`');
         return view('serviciosCliente', [ "servicios" => $servicios ]);
     }
-
-   
 }

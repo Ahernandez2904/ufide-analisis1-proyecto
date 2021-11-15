@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 use DoctrineDBALDriverPDOConnection;
 use Illuminate\Support\Facades\DB;
+
+/* -------------------------------
+CONTROLLER DE serviciosAdmin (Servicios)
+------------------------------- */
 
 class serv_adminController extends Controller
 {
@@ -20,11 +23,6 @@ class serv_adminController extends Controller
         return view('serviciosAdmin', [ "servicios" => $servicios ]);
     }
    
-    public function create()
-    {
-        //
-        return view ("serviciosAdmin");
-    }
     /**
      * Store a newly created resource in storage.
      *
@@ -33,19 +31,13 @@ class serv_adminController extends Controller
      */
     public function store(Request $request)
     {
-    
-        //serv_adminController::create($request->all());
-
-
-        DB::select('CALL `fungdb`.`crear_servicio`("'.
-        $request->input('nombre').'", '.
-        $request->input('costo').',"'.
-        $request->input('tiempo_estimado').'");');
-       
-        return view ("serviciosAdmin");
-        
-   
- 
+        DB::select('CALL `fungdb`.`crear_servicio`('.
+        '"'.$request->input('nombre').'", '.
+        '"'.$request->input('descripcion').'", '.
+        $request->input('costo').', '.
+        '0'.', '. //¿Es promoción? Falso
+        '"'.$request->input('tiempo_estimado').'");');
+        return redirect()->route('serviciosAdmin.index');
     }
 
     /**
@@ -57,7 +49,13 @@ class serv_adminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return view ("serviciosAdmin");
+        DB::select('CALL `fungdb`.`modificar_servicio`('.
+        $id.', '.
+        '"'.$request->input('nombre').'", '.
+        '"'.$request->input('descripcion').'", '.
+        $request->input('costo').', '.
+        '"'.$request->input('tiempo_estimado').'");');
+        return redirect()->route('serviciosAdmin.index');
     }
 
     /**
@@ -68,6 +66,11 @@ class serv_adminController extends Controller
      */
     public function destroy($id)
     {
-        return view ("serviciosAdmin");
+        try {
+            DB::select('call `fungdb`.`eliminar_servicio`('.$id.');');
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+        return redirect()->route('serviciosAdmin.index');
     }
 }
