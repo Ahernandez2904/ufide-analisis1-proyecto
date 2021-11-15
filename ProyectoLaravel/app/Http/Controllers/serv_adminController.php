@@ -39,8 +39,8 @@ class serv_adminController extends Controller
 
         DB::select('CALL `fungdb`.`crear_servicio`("'.
         $request->input('nombre').'", '.
-        $request->input('costo').','.
-        $request->input('tiempo_estimado').');');
+        $request->input('costo').',"'.
+        $request->input('tiempo_estimado').'");');
        
         return view ("serviciosAdmin");
         

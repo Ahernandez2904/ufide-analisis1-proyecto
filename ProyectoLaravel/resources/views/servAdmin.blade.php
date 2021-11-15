@@ -114,7 +114,7 @@
 				<tr>
 				<th>ID</th>
 					<th>Nombre</th>
-					<th>Precio Estimado</th>
+					<th>Precio Estimado (En colones)</th>
 					<th>Tiempo Estimado</th>
 			  		<th>Editar/eliminar</th>
 				
@@ -126,7 +126,7 @@
 				@forelse($servicios as $servicio)
 				<td>{{$servicio->id}}</td>
 					<td>{{$servicio->nombre}}</td>
-					<td>{{$servicio->costo}}</td>
+					<td>₡{{$servicio->costo}}</td>
 					<td>{{$servicio->tiempo_estimado}}</td>
 					
 					

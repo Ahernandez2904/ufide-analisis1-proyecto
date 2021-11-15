@@ -74,8 +74,8 @@ class servAdminController extends Controller
         DB::select('CALL `fungdb`.`modificar_servicio`('.
         $request->input('id').',"'.
         $request->input('nombre').'", '.
-        $request->input('costo').','.
-        $request->input('tiempo_estimado').');');
+        $request->input('costo').',"'.
+        $request->input('tiempo_estimado').'");');
     
 
         
