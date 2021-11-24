@@ -64,7 +64,7 @@
 				  	<a class="nav-link js-scroll-trigger" href="citasAdmin.blade.php">Citas</a>
 				</li>
 				<li class="nav-item">
-				  	<a class="nav-link js-scroll-trigger" href="{{ route('articulos.index') }}">Inventario</a>
+				  	<a class="nav-link js-scroll-trigger" href="inventarioAdmin.blade.php">Inventario</a>
 				</li>
 				<li class="nav-item">
 				  	<a class="nav-link js-scroll-trigger" href="serviciosAdmin.blade.php">Servicios</a>

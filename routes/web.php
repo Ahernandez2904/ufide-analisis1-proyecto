@@ -23,7 +23,7 @@ Route::resource('serviciosCliente', 'serviciosClienteController');
 Route::resource('categoriasProveedor', 'categoriasProveedorController');
 Route::resource('categoriasArticulos', 'categoriasArticulosController');
 Route::resource('feedbackAdmin', 'feedbackAdminController');
-Route::resource('articulos', 'ArticuloController') ->middleware('soloadmin');
+
 
 
 /*use App\Http\Controllers\clientesAdminController;
