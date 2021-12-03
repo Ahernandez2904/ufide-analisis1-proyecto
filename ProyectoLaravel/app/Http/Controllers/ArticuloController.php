@@ -25,7 +25,7 @@ class ArticuloController extends Controller
         return view('articulo.index', compact('articulos'))
             ->with('i', (request()->input('page', 1) - 1) * $articulos->perPage());
     }
-    
+   
     /**
      * Show the form for creating a new resource.
      *

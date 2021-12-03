@@ -6,7 +6,10 @@ use App\http\Controllers\perfilAdminVehiculoController;
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/encuestaSatisfaccionCliente', [App\Http\Controllers\EncuestaController::class, 'index'])->name('encuestaSatisfaccionCliente');
 Route::resource('/user', UserController::class);
+
+
 
 Route::view('/', 'Index')->name('index');
 Route::resource('CitasAdmin', 'citas_admin_controller');
@@ -23,6 +26,7 @@ Route::resource('serviciosCliente', 'serviciosClienteController');
 Route::resource('categoriasProveedor', 'categoriasProveedorController');
 Route::resource('categoriasArticulos', 'categoriasArticulosController');
 Route::resource('feedbackAdmin', 'feedbackAdminController');
+Route::resource('encuesta', 'encuestaController');
 Route::resource('articulos', 'ArticuloController') ->middleware('soloadmin');
 
 
