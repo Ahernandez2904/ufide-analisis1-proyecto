@@ -23,6 +23,7 @@ Route::resource('serviciosCliente', 'serviciosClienteController');
 Route::resource('categoriasProveedor', 'categoriasProveedorController');
 Route::resource('categoriasArticulos', 'categoriasArticulosController');
 Route::resource('feedbackAdmin', 'feedbackAdminController');
+Route::resource('retroalimentacion', 'retroalimentacionController');
 
 
 
